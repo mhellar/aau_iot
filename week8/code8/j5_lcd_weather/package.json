@@ -1,0 +1,14 @@
+{
+  "name": "j5_lcd_weather",
+  "version": "1.0.0",
+  "description": "Display weather on an LCD",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Hellar",
+  "license": "ISC",
+  "dependencies": {
+    "weather-js": "^1.0.2"
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Serial Connect</title>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+    var socket = io.connect('//localhost:3000');
+    socket.on('nameofsocket', function(data) {
+        console.log(data);
+        $('#incoming').text(data);
+        $("img").attr("height",data);
+    });
+    socket.on('error', function() {
+        console.error(arguments)
+    });
+    </script>
+</head>
+
+<body>
+
+<h1 id="incoming"></h1>
+<img src="http://sad.hasbro.com/db7312c97e69f2aa2a48e9c156bbc05885942775/b70a21dcba19c51601f16a09a6098413.png" height="150">
+
+</body>
+
+</html>
