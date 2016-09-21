@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> Internet of Things: Week 3</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <figure>
+                    <h2 class="intro">Internet of Things: Week 3</h2 class="intro">
+                        <h2 class="intro">Internet of Things: Week 3</h2 class="intro">
+                        <h2 class="intro">Internet of Things: Week 3</h2 class="intro">
+                        <h2 class="intro">Internet of Things: Week 3</h2 class="intro">                  
+                    </figure>
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="90px" data-background-transition="zoom">
+                    <p>Grab the code here: <a href="http://bit.ly/1Wh6jdM">http://bit.ly/1Wh6jdM</a></p>
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="80px" data-background-transition="zoom">
+                    <ul>
+                        <h3>Topics for This Week:</h3>
+                        <li class="fragment">Fun with the serial port</li>
+                        <li class="fragment">Ultrasonic Sensor HC-SR04</li>
+                        <li class="fragment">Using Libraries</li>
+                        <li class="fragment">Controlling Motion With a Servo</li>
+                        <li class="fragment">Getting Parts</li>
+                    </ul>
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="40px" data-background-transition="zoom">
+                <iframe src="https://player.vimeo.com/video/88992597?color=6c6e95&title=0&byline=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/88992597">Space Replay floats hauntingly through spaces echoing its surroundings</a> from <a href="https://vimeo.com/dezeen">Dezeen</a></p>
+                </section>
+
+<section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="40px" data-background-transition="zoom">
+                <iframe src="https://player.vimeo.com/video/49759812?color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/49759812">Toxoplasmosis Window Installation</a> from <a href="https://vimeo.com/randomstudio">Random Studio</a></p></section>
+                                                 <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="40px" data-background-transition="zoom"><p>
+  <p>Serial is used for communication between the Arduino board and a computer or other devices. All Arduino boards have at least one serial port (also known as a UART or USART): Serial. It communicates on digital pins 0 (RX) and 1 (TX) as well as with the computer via USB. </p>
+</section>
+                                                 <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="40px" data-background-transition="zoom"><p>
+                Baud Rate<br><br>
+
+The baud rate specifies how fast data is sent over a serial line. It’s usually expressed in units of bits-per-second (bps).<br><br>
+
+Baud rates can be just about any value within reason. The only requirement is that both devices operate at the same rate. One of the more common baud rates, especially for simple stuff where speed isn’t critical, is 9600 bps. Other “standard” baud are 1200, 2400, 4800, 19200, 38400, 57600, and 115200.<br><br>
+
+</section>
+
+                <section>
+                <p>SerialHelloWorld.ino</p>
+                    <code>
+<pre>
+/*
+ * Hello World!
+ *
+ * This is the Hello World! for Arduino. 
+ * It shows how to send data to the computer
+ */
+
+
+void setup()                    // run once, when the sketch starts
+{
+  Serial.begin(9600);           // set up Serial library at 9600 bps
+  
+  Serial.println("Hello world!");  // prints hello with ending line break 
+}
+
+void loop()                       // run over and over again
+{
+                                  // do nothing!
+}
+</code>
+                    </pre>
+                </section>
+
+                <section>
+                <p>SerialMath.ino</p>
+                    <code>
+<pre>
+int a = 5;
+int b = 10;
+int c = 20;
+
+void setup()                    // run once, when the sketch starts
+{
+  Serial.begin(9600);           // set up Serial library at 9600 bps
+
+  Serial.println("Here is some math: ");
+
+  Serial.print("a = ");
+  Serial.println(a);
+  Serial.print("b = ");
+  Serial.println(b);
+  Serial.print("c = ");
+  Serial.println(c);
+
+  Serial.print("a + b = ");       // add
+  Serial.println(a + b);
+
+  Serial.print("a * c = ");       // multiply
+  Serial.println(a * c);
+  
+  Serial.print("c / b = ");       // divide
+  Serial.println(c / b);
+  
+  Serial.print("b - c = ");       // subtract
+  Serial.println(b - c);
+}
+
+void loop()                     // we need this to be here even though its empty
+{
+}
+</code>
+                    </pre>
+                </section>
+                                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                    <h3 class="intro">WE can send Serial data as well</h3>
+            </section>
+
+
+
+                 <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="40px" data-background-transition="zoom">
+                 <img src="img/RGB-LED.jpg" height="400">
+                 <p>-Connect the long lead(common cathode) of an RBG LED to GND<br>-Connect the short leads to pins 9,10,11 in series with 220 ohm resistors</p>
+                </section>
+                                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                    <h2 class="intro">Upload SerialLedControl.ino</h2>
+            </section>
+            <section>
+                <code>
+<pre>
+
+/*
+ * Serial Read Basic
+ * -----------------
+ * Blink the pin 9 LED if an 'b' is received over the serial port
+ *
+ * 
+ */
+
+int ledPin = 9;   // select the pin for the LED
+int val = 0;       // variable to store the data from the serial port
+
+void setup() {
+  pinMode(ledPin,OUTPUT);    // declare the LED's pin as output
+  Serial.begin(19200);        // connect to the serial port
+}
+
+void loop () {
+  // Serial.available() is a way to see if there's serial data
+  // without pausing your code
+  if( Serial.available() ) {
+    val = Serial.read();      // read the serial port  
+    if( val == 'b' ) {        // if it's an 'b', blink the light
+      digitalWrite(ledPin, HIGH);
+      delay(1000);
+      digitalWrite(ledPin, LOW);
+    } 
+  }
+
+}
+
+</code>
+                </pre>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h2 class="intro">Upload PhysicalPixel.ino</h2>
+            </section>
+            <section>
+                <code>
+<pre>
+
+
+const int redPin = 9; // the pin that the LED is attached to
+const int bluePin = 10; // the pin that the LED is attached to
+const int greenPin = 11; // the pin that the LED is attached to
+int incomingByte;      // a variable to read incoming serial data into
+
+void setup() {
+  // initialize serial communication:
+  Serial.begin(9600);
+  // initialize the LED pin as an output:
+  pinMode(redPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+}
+
+void loop() {
+  // see if there's incoming serial data:
+  if (Serial.available() > 0) {
+    // read the oldest byte in the serial buffer:
+    incomingByte = Serial.read();
+    // if it's a r , turn on the red LED:
+    if (incomingByte == 'r') {
+      digitalWrite(greenPin, LOW);
+      digitalWrite(bluePin, LOW);
+      digitalWrite(redPin, HIGH);
+    }
+    // if it's a g , turn on the green LED:
+    if (incomingByte == 'g') {
+      digitalWrite(greenPin, HIGH);
+      digitalWrite(bluePin, LOW);
+      digitalWrite(redPin, LOW);
+    }
+    / if it's a b , turn on the blue LED:
+    if (incomingByte == 'b') {
+      digitalWrite(greenPin, LOW);
+      digitalWrite(bluePin, HIGH);
+      digitalWrite(redPin, LOW);
+    }
+  }
+}
+</code>
+                </pre>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <img src="img/hc2r04.png" height="400">
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <p>
+                    The HC-SR04 ultrasonic sensor uses sonar to determine distance to an object like bats do. It offers excellent non-contact range detection with high accuracy and stable readings in an easy-to-use package. From 2cm to 400 cm or 1” to 13 feet. It operation is not affected by sunlight or black material like an infrared rangefinders are (although acoustically soft materials like cloth can be difficult to detect). It comes complete with ultrasonic transmitter and receiver module.</p>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <p>Features</p>
+                <ul>
+                    <li>Power Supply :+5V DC</li>
+                    <li>Ranging Distance : 2cm – 400 cm/1″ – 13ft</li>
+                    <li>Resolution : 0.3 cm</li>
+                    <li>Measuring Angle: 30 degree</li>
+                    <li>Trigger Input Pulse width: 10uS</li>
+                    <li>Dimension: 45mm x 20mm x 15mm</li>
+                </ul>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <p>Build the following circuit</p>
+                <img src="img/hc2r04.png" height="400">
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <p>Upload HC-SR04.ino</p>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <p>Libraries</p>
+                <br>
+                <p>The Arduino environment can be extended through the use of libraries, just like most programming platforms. Libraries provide extra functionality for use in sketches, e.g. working with hardware or manipulating data. To use a library in a sketch, select it from Sketch > Import Library. A number of libraries come installed with the IDE, but you can also download or create your own.</p>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <p>Let install the NewPing library</p>
+                <br>
+                <p>Go to 'Sketch'->'Include Library'->'Manage Libraries'</p>
+                <img src="img/lib.png" height="400">
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <p>Search for 'New Ping'</p>
+                <br>
+                <img src="img/newping.png" height="400">
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <p>Go to 'File'->'Examples'->'NewPing'->'NewPingExample'</p>
+            </section>
+            <section>
+                <h2>Controlling a Servo</h2>
+                <img src="img/servo.png" height="500">
+                <a href="#" class="navigate-down">
+                </a>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+            A Servo is a small device that has an output shaft. This shaft can be positioned to specific angular positions by sending the servo a coded signal. As long as the coded signal exists on the input line, the servo will maintain the angular position of the shaft. As the coded signal changes, the angular position of the shaft changes. In practice, servos are used in radio controlled airplanes to position control surfaces like the elevators and rudders. They are also used in radio controlled cars, puppets, and of course, robots.   
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+            <iframe src="https://player.vimeo.com/video/82282785?color=c9ff23&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/82282785">Oongsung Oongsung</a> from <a href="https://vimeo.com/comicinema">Eun Young Park</a></p>
+            </section>
+                        <section>
+                <h2>Connect the servo</h2>
+                <img src="img/servo.png" height="500">
+                <a href="#" class="navigate-down">
+                </a>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h2>Servo_Sweep.ino</h2>
+                <pre><code>
+#include <Servo.h>
+Servo myservo; // create servo object to control a servo
+// a maximum of eight servo objects can be created
+int pos = 0; // variable to store the servo position
+
+void setup() {
+myservo.attach(9); // attaches the servo on pin 9 to the servo object }
+
+void loop() {
+for(pos = 0; pos < 180; pos += 1) // goes from 0 degrees to 180 degrees
+}
+{ myservo.write(pos); delay(15);
+// in steps of 1 degree
+// tell servo to go to position in variable 'pos'
+// waits 15ms for the servo to reach the position
+}
+for(pos = 180; pos>=1; pos-=1) // goes from 180 degrees to 0 degrees 
+{
+myservo.write(pos); // tell servo to go to position in variable 'pos'
+delay(15); // waits 15ms for the servo to reach the position 
+}
+</code></pre>
+            </section>
+            <section>
+                <h3>Servo With Potentiometer</h3>
+                <img src="img/servo_w_pot.png" height="600">
+            </section>
+            <section>
+                <h3 class="intro">Upload SERVO_KNOB.INO</h3>
+            </section>
+            <section>
+                <h3>Control a servo via serial</h3>
+                <img src="img/servo_w_pot.png" height="600">
+            </section>
+            <section>
+                <h3 class="intro">Upload SerialServoControl.ino</h3>
+            </section>
+                        <section>
+                <h3>Parts:</h3>
+                <ul>
+                    <li><a href="https://www.adafruit.com/">Adafruit</a></li>
+                    <li><a href="https://www.sparkfun.com/">Sparkfun</a></li>
+                    <li><a href="https://moderndevice.com/">Moderndevice</a></li>
+                    <li><a href="https://www.seeedstudio.com">Seeedstudio</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Assignment:</h3>
+                <ul>
+                    <li>Create a circuit with 3 elements of input and output, one must me analog input</li>
+                    <li>Write a program for it, it would be nice if you log the input value to serial</li>
+                    <li>Write a one page paper describibing the circuit and program. Include a photo of the circuit in you paper</li>
+                </ul>
+            </section>
+            <section>
+                <h3>For Next Week:</h3>
+                <ul>
+                    <li>Install NodeJS - https://nodejs.org/en/</li>
+                    <li>Install Xcode Command Line Tools - http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function() {
+                return !document.body.classList;
+            }
+        }, {
+            src: 'plugin/markdown/marked.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            condition: function() {
+                return !!document.querySelector('pre code');
+            },
+            callback: function() {
+                hljs.initHighlightingOnLoad();
+            }
+        }, {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true
+        }, {
+            src: 'plugin/notes/notes.js',
+            async: true
+        }]
+    });
+    </script>
+</body>
+
+</html>
