@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> Internet of Things: Week 4</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <figure>
+                    <h2 class="intro">Internet of Things: Week 4</h2 class="intro">
+                        <h2 class="intro">Internet of Things: Week 4</h2 class="intro">
+                        <h2 class="intro">Internet of Things: Week 4</h2 class="intro">
+                        <h2 class="intro">Internet of Things: Week 4</h2 class="intro">                  
+                    </figure>
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="90px" data-background-transition="zoom">
+                    <p>Grab the code here: <a href="http://bit.ly/2d3rmVR">http://bit.ly/2d3rmVR</a></p>
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="80px" data-background-transition="zoom">
+                    <ul>
+                        <h3>Topics for This Week:</h3>
+                        <li class="fragment">Homework Showcase!</li>
+                        <li class="fragment">All about adressable LEDs</li>
+                        <li class="fragment">IR Remote Control</li>
+                        <li class="fragment">Control adressable LEDS with IR remote</li>
+                        <li class="fragment">Hackers Den!</li>
+                    </ul>
+                </section>
+                                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="40px" data-background-transition="zoom">
+<h1>Homework Showcase!</h1>
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="40px" data-background-transition="zoom">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ylIYHmbM0UA" frameborder="0" allowfullscreen></iframe>
+                </section>
+
+<section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="40px" data-background-transition="zoom">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/5-xLDVILtMY" frameborder="0" allowfullscreen></iframe></section>
+<section>
+                <h3>Introduction to Addressable LEDS</h3>
+                <img src="img/wsring.png" height="200">
+                <img src="img/neostrip.png">
+                <img src="img/ws2811.png">
+                </section>
+                <section>
+                <h3>Basic LEDS Need a lot of Wiring</h3>
+                <img src="img/led.png" height="300">
+                </section>
+                <section>
+                <h3>Addressable LEDs provide circuitry to communicate serially</h3>
+                <img src="img/WS2812_c.jpg" height="300">
+                </section>
+                <section>
+                <h3>Each LED has a chip to receive, decode, drive LED’s and propagate data</h3>
+                <img src="img/rgb-smd-led-with-wit-integrated-ws2812b-chip-type.jpg" height="300">
+                </section>
+                <section>
+                <h3>They are chainable, fairly cheap and have their own resistors etc..</h3>
+                <img src="img/wall.jpg" height="400">
+                <h3>You can drive 10000's from 1 microcontroller</h3>
+                </section>
+                <section>
+                <p>Adafruit has branded these Neopixels</p>
+                <img src="img/ada.png">
+                </section>
+                <section>
+                <p>You can get them for half the price on Ebay as ws2812's</p>
+                <img src="img/ebay.png">
+                </section>
+                <section>
+                <h4>These have a 5v, GND and DIN pin</h4>
+                <img src="img/ring_pins.jpeg" height="400">
+                <h4>Connect 5v to 5v, GND to GND and DIN to Pin6</h4>
+                </section>
+                <section>
+                <p>Import the NeoPixel Library</p>
+                <img src="img/import_library.png">
+                </section>
+                <section>
+                <p>Import the NeoPixel Library</p>
+                <img src="img/neolib.png">
+                </section>
+                <section>
+                <p>Let's try some examples and write our own code!</p>
+                </section>
+                <section>
+                <p>FastLED</p>
+                <a href="http://fastled.io/">Fast LED Library</a>
+                </section>
+                <section>
+                <p>APA102</p>
+                <a href="https://cpldcpu.wordpress.com/2014/08/27/apa102/">APA102 aka “Superled”</a>
+                </section>
+                <section>
+                <p>Remote Control</p>
+                <img src="img/irremote.jpg" height="600">
+                </section>
+                <section>
+                <p>Hook Up the IR reciever</p>
+                <img src="img/irreceiver.jpg" height="600">
+                </section>
+                <section>
+                    <ul>
+                        <h3>There's a couple libraries</h3>
+                        <li class="fragment">IRremote</li>
+                        <li class="fragment">IRLremote</li>
+                        <li class="fragment">Install Both</li>
+                    </ul>
+                </section>
+                <section>
+                <p>Receive_Custom_neo.ino</p>
+                </section>
+
+            <section>
+                <h3>Assignment:</h3>
+                <ul>
+                    <li>Create an awesome remote controlled device!! Be ready to showcase next week. Prizes will be given! Also, next week we will start using Javascript!!</li>
+                </ul>
+            </section>
+            <section>
+                <h3>For Next Week:</h3>
+                <ul>
+                    <li>Install NodeJS - https://nodejs.org/en/</li>
+                    <li>Install Xcode Command Line Tools - http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function() {
+                return !document.body.classList;
+            }
+        }, {
+            src: 'plugin/markdown/marked.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            condition: function() {
+                return !!document.querySelector('pre code');
+            },
+            callback: function() {
+                hljs.initHighlightingOnLoad();
+            }
+        }, {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true
+        }, {
+            src: 'plugin/notes/notes.js',
+            async: true
+        }]
+    });
+    </script>
+</body>
+
+</html>
