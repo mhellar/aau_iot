@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Internet of things: Week 7</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <figure>
+                    <h2 class="intro">Internet of Things: Week 7</h2 class="intro">
+                        <h2 class="intro">Internet of Things: Week 7</h2 class="intro">
+                        <h2 class="intro">Internet of Things: Week 7</h2 class="intro">
+                        <h2 class="intro">Internet of Things: Week 7</h2 class="intro">                  
+                    </figure>
+                </section>
+
+                <section data-background="img/72-points-mesh.svg" data-background-transition="zoom">
+                    <p><b>Slides are here: <br>http://mhellar.github.io/IotClass/week7</b></p>
+                    <br>
+                    <p><b>Grab the code here: <br><a href="http://bit.ly/1OQp0Fi">http://bit.ly/1OQp0Fi</a></b></p>
+                </section>
+
+
+                <section>
+                    <ul>
+                        <h3>Topics for This Week:</h3>
+                        <li class="fragment">Mid-term Slide Presentations</li>
+                        <li class="fragment">Making the computer talk</li>
+                        <li class="fragment">Using a Liquid Crystal Display</li>
+                        <li class="fragment">Hackathon!</li>
+                    </ul>
+                </section>
+
+                <section data-background="https://media.giphy.com/media/3oEduNAaIxedayonCg/giphy.gif"  data-background-transition="zoom">
+<h1>Field Trip! Nov 9th</h1>
+                </section>
+                <section>
+<h3>New Experiments in Art and Technology</h3>
+<img src="img/neat_slide_preopen.jpg" height="500">
+                </section>
+                 <section>
+                 <h3>Target Open House</h3>
+<img src="img/targ_oh.jpg" height="500">
+                </section>
+                 <section>
+                 <h3>Childrens Creativity Museum</h3>
+<img src="img/ccm7.jpg" height="500">
+<h3>Thanks Tom!</h3>
+                </section>
+                <section>
+                <div class="scene">
+  <div class="wrap">
+    <div class="wall wall-right"></div>
+    <div class="wall wall-left"></div>
+    <div class="wall wall-top"></div>
+    <div class="wall wall-bottom"></div>
+    <div class="wall wall-back"></div>
+  </div>
+  <div class="wrap">
+    <div class="wall wall-right"></div>
+    <div class="wall wall-left"></div>
+    <div class="wall wall-top"></div>
+    <div class="wall wall-bottom"></div>
+    <div class="wall wall-back"></div>
+  </div>
+  </div> 
+        <h2 class="intro">Mid-term Slide Presentations</h2 class="intro">
+        <h2 class="intro">Mid-term Slide Presentations</h2 class="intro">
+        <h2 class="intro">Mid-term Slide Presentations</h2 class="intro">
+                </section>
+                <section>
+                    <section>
+                    <img src="img/computer_talk.jpg" height="650">
+                    <a href="#" class="navigate-down">
+                    </a>
+                    </section>
+                    <section>
+                    <h3>Open a terminal</h3>
+                    <img src="img/say_cmd.png" height="250">
+                    <h3>Type 'say' + space  + "something to say"</h3>
+                    </section>
+                    <section>                        
+                        <h3>code/speak/app.js</h3>
+                        
+                        <pre><code class="javascript" contenteditable style="font-size: 20px;">
+//the child_process library let's us execute command line commands
+var exec = require('child_process').exec;
+//This variable stores the command we want to execute
+//we are going to use the say command
+var say = 'say ';
+
+//let's make a function that speaks
+function speak(whatosay){
+    //speak the string
+    exec(say + whatosay);
+    //log it to the console
+    console.log(whatosay)
+}
+// call the function
+speak("I just do this");
+                        </code></pre>
+                        
+                    </section>
+                        <section>                        
+                        <h3>Open the code7/speak folder in Sublime and let's have a look</h3>
+                    </section>
+                    <section>                        
+                        <h3>Modify the program, change the voice and what it says.</h3><br>
+                        <h3>Save it and then run node app.js</h3>
+                    </section>
+                    <section>                        
+                        <h3>I added the speech function to last weeks twitter example</h3><br>
+                        <h3>try it out code7/twitter-speak</h3>
+                    </section>
+                    <section>                        
+                        <h3>Why did we do this?</h3><br>
+                        <h3 class="fragment">I promised some people I would show how to make things speak</h3>
+                        <h3 class="fragment">We will be using speech in this weeks project</h3>
+                    </section>
+
+                    </section>
+                    <section>
+                    <section>
+                    <h3>Here's what we are making this week.</h3>
+                    </section>
+                </section>
+                <section>
+                <section>
+                <h3>Let's hook up the Liquid Crystal Display</h3>
+                <img src="img/LCD_Base.png">
+                <a href="https://www.arduino.cc/en/Tutorial/HelloWorld">Detailed Reference</a>
+                <a href="#" class="navigate-down">
+                    </a>
+                </section>
+                <section>
+                <h3>Unplug your Arduino from USB</h3><br>
+                <h3>Hook up according to the diagram</h3><br>
+                <h3>Call out if you need help!</h3>
+                </section>
+                <section>
+                <h3>Arduino Examples:</h3>
+                </section>
+                <section>                        
+                        <h3>code7/HelloWorld/HelloWorld.ino
+                </section>
+                <section>                        
+                        <h3>code7/Display/Display.ino
+                </section>
+                <section>                        
+                        <h3>code7/SerialDisplay/SerialDisplay.ino
+                </section>
+                <section>                        
+                        <a href="https://www.arduino.cc/en/Reference/LiquidCrystal">Arduino Liquid Crystal Display Library</a>
+                </section>
+                </section>
+                
+                <section>
+                <section>                        
+                        <h3>Johnny Five Examples</h3>
+                        <a href="#" class="navigate-down">
+                        </a>
+                </section>
+                <section>                        
+                        <h3>Upload Firmata to Arduino</h3>
+                </section>
+                <section>                        
+                        <h3>code7/j5_lcd_weather</h3><br>
+                        <h3>node app.js</h3>
+                </section>    
+                <section>                        
+                        <h3>code7/j5_lcd_bart</h3><br>
+                        <h3>node app.js</h3>
+                </section>    
+                </section>
+                 <section>
+                 <h2>Midterm Project is due next week!</h2>
+                </section>  
+                <section>
+                 <h2>Hackathon starts at 3:00pm in room 415</h2>
+                </section>                        
+                  
+                </section>
+
+                </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function() {
+                return !document.body.classList;
+            }
+        }, {
+            src: 'plugin/markdown/marked.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            condition: function() {
+                return !!document.querySelector('pre code');
+            },
+            callback: function() {
+                hljs.initHighlightingOnLoad();
+            }
+        }, {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true
+        }, {
+            src: 'plugin/notes/notes.js',
+            async: true
+        }]
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "twitter-ard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cfonts": "0.0.13",
+    "johnny-five": "^0.8.106",
+    "serialport": "^2.0.6",
+    "twitter": "^1.2.5"
+  }
+}
