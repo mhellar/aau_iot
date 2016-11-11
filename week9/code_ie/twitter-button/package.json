@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "johnny-five": "^0.8.106",
-    "twitter": "^1.2.5"
+    "johnny-five": "^0.10.3",
+    "twitter": "^1.4.0"
   }
 }
