@@ -21,9 +21,14 @@
 
 // These constants won't change.  They're used to give names
 // to the pins used:
-const int analogInPin = A0;  // Analog input pin that the potentiometer is attached to
+const int analogInPin = A1;  // Analog input pin that the potentiometer is attached to
+const int analogInPin1 = A2;  // Analog input pin that the potentiometer is attached to
+const int analogInPin2 = A3;  // Analog input pin that the potentiometer is attached to
 
 int sensorValue = 0;        // value read from the pot
+int sensorValue1 = 0;        // value read from the pot
+int sensorValue2 = 0;        // value read from the pot
+
 
 void setup() {
   // initialize serial communications at 9600 bps:
@@ -33,9 +38,17 @@ void setup() {
 void loop() {
   // read the analog in value:
   sensorValue = analogRead(analogInPin);
-
+  sensorValue1 = analogRead(analogInPin1);
+  sensorValue2 = analogRead(analogInPin2);
   // print the results to the serial monitor:
-  Serial.println(sensorValue);
+  
+  Serial.print(sensorValue1);
+  Serial.print(",");
+  Serial.print(sensorValue1);
+  Serial.print(",");
+  Serial.println(sensorValue2);
+
+  
 
   // wait 2 milliseconds before the next loop
   // for the analog-to-digital converter to settle
