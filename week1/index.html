@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="lib/css/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-    document.getElementsByTagName('head')[0].appendChild(link);
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
     </script>
     <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
@@ -31,72 +31,76 @@
             <section>
                 <figure>
                     <h2 class="intro">Internet of Things: Week 1</h2 class="intro">
-                        <h2 class="intro">Internet of Things: Week 1</h2 class="intro">
-                        <h2 class="intro">Internet of Things: Week 1</h2 class="intro">
-                        <h2 class="intro">Internet of Things: Week 1</h2 class="intro">  
-                        <h2 class="intro">Internet of Things: Week 1</h2 class="intro">
-                                         
-                    </figure>
-                </section>
-                <section data-background="img/evil-robot-glitch-remix.svg" data-background-transition="zoom">
-                    <p>Slides are here: <a href="http://mhellar.github.io/ga_physcomp/1">http://mhellar.github.io/ga_physcomp/1</a></p>
-                    <br>
-                    <p>Grab the code here: <a href="http://bit.ly/2c5wYej">http://bit.ly/2c5wYej</a></p>
-                </section>
+                    <h2 class="intro">Internet of Things: Week 1</h2 class="intro">
+                    <h2 class="intro">Internet of Things: Week 1</h2 class="intro">
+                    <h2 class="intro">Internet of Things: Week 1</h2 class="intro">
+                    <h2 class="intro">Internet of Things: Week 1</h2 class="intro">
+
+                </figure>
+            </section>
+            <section data-background="img/evil-robot-glitch-remix.svg" data-background-transition="zoom">
+                <p>Slides are here: <a href="https://mhellar.github.io/aau_iot/week1">https://mhellar.github.io/aau_iot/week1</a></p>
+                <br>
+                <p>Grab the code here: <a href="http://bit.ly/2c5wYej">http://bit.ly/2c5wYej</a></p>
+            </section>
+            <section data-background="img/evil-robot-glitch-remix.svg" data-background-transition="zoom">
+                <p>Download Arduino: <a href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a></p>
+            </section>
 
 
+            <section>
+                <ul>
+                    <h3>Topics for This Week:</h3>
+                    <li class="fragment">What is a Microcontroller?</li>
+                    <li class="fragment">Introduction to Arduino</li>
+                    <li class="fragment">Building your first circuit</li>
+                    <li class="fragment">Writing a program to control digital output</li>
+                </ul>
+            </section>
+            <section>
+
                 <section>
-                    <ul>
-                        <h3>Topics for This Week:</h3>
-                        <li class="fragment">What is a Microcontroller?</li>
-                        <li class="fragment">Introduction to Arduino</li>
-                        <li class="fragment">Building your first circuit</li>
-                        <li class="fragment">Writing a program to control digital output</li>
-                    </ul>
-                </section>
-                <section>
-                    
-                <section>                    
-                        ￼<h3>WHAT IS A MICROCONTOLLER:</h3>
-                        <p>
-We know what a computer looks like. It usually has a keyboard, monitor, CPU (Central Processing Unit), printer, and a mouse.These types of computers, like the Mac or PC, are
-primarily designed to communicate (or “interface”) with humans.
-</p>
-<a href="#" class="navigate-down">
-                        </a>
-                </section>
-                <section>                    
-                        ￼
-                        <p>
-A microcontroller is a self-contained system with peripherals, memory and a processor that can be used as an embedded system. Most programmable microcontrollers that are used today are embedded in other consumer products or machinery including phones, peripherals, automobiles and household appliances for computer systems.</p>
-                </section>
-                <section>                    
-                        ￼
-                        <p>
-We call these devices “microcontrollers”. Micro because they’re small, and controller because they “control” machines, gadgets, whatever.
-They’re cool because, you can build a machine or device,
-write programs to control it and then let it work for you automatically.</p>
+                    ￼
+                    <h3>WHAT IS A MICROCONTOLLER:</h3>
+                    <p>
+                        We know what a computer looks like. It usually has a keyboard, monitor, CPU (Central Processing Unit), printer, and a mouse.These types of computers, like the Mac or PC, are primarily designed to communicate (or “interface”) with humans.
+                    </p>
+                    <a href="#" class="navigate-down">
+                    </a>
                 </section>
                 <section>
-                        ￼
-                        <img src="img/furby.jpg"  height="220" alt="">
-                        <img src="img/nest.jpg" height="220" alt="">
-                        <img src="img/po.jpg" height="220" alt="">
-                        <img src="img/linn.jpg" height="220" alt="">
+                    ￼
+                    <p>
+                        A microcontroller is a self-contained system with peripherals, memory and a processor that can be used as an embedded system. Most programmable microcontrollers that are used today are embedded in other consumer products or machinery including phones,
+                        peripherals, automobiles and household appliances for computer systems.</p>
+                </section>
+                <section>
+                    ￼
+                    <p>
+                        We call these devices “microcontrollers”. Micro because they’re small, and controller because they “control” machines, gadgets, whatever. They’re cool because, you can build a machine or device, write programs to control it and then let it work for you
+                        automatically.
+                    </p>
+                </section>
+                <section>
+                    ￼
+                    <img src="img/furby.jpg" height="220" alt="">
+                    <img src="img/nest.jpg" height="220" alt="">
+                    <img src="img/po.jpg" height="220" alt="">
+                    <img src="img/linn.jpg" height="220" alt="">
                 </section>
                 <section>
                     <h2>There are many diiferent kinds of microcontrollers</h2>
-            </section>
-            <section data-background="img/mc-grid.jpg" data-background-size="1000px" data-background-transition="zoom">
-            </section>
-            <section data-background="img/part.png" data-background-size="1200px" data-background-transition="zoom">
-            </section>
-            <section>
-                ￼
-                <img src="img/lbb.png" height="250" alt="">
-                <img src="img/flora.jpg" height="250" alt="">
-                <img src="img/trinket.jpg" height="250" alt="">
-            </section>
+                </section>
+                <section data-background="img/mc-grid.jpg" data-background-size="1000px" data-background-transition="zoom">
+                </section>
+                <section data-background="img/part.png" data-background-size="1200px" data-background-transition="zoom">
+                </section>
+                <section>
+                    ￼
+                    <img src="img/lbb.png" height="250" alt="">
+                    <img src="img/flora.jpg" height="250" alt="">
+                    <img src="img/trinket.jpg" height="250" alt="">
+                </section>
             </section>
             </section>
             <section>
@@ -113,7 +117,9 @@ write programs to control it and then let it work for you automatically.</p>
                     </a>
                 </section>
                 <section>
-                    <a href="https://www.arduino.cc/"><h1>www.arduino.cc</h1></a>
+                    <a href="https://www.arduino.cc/">
+                        <h1>www.arduino.cc</h1>
+                    </a>
                 </section>
             </section>
             <section>
@@ -128,7 +134,8 @@ write programs to control it and then let it work for you automatically.</p>
                 <section data-background="img/Daniel-Rozin-Penguin-Mirror-1.gif" data-background-size="1000px" data-background-transition="zoom">
                 </section>
                 <section>
-                    <p>In the past, using electronics meant having to deal with engineers, and building circuits one small component at a time.These issues kept creative people from experimenting with the medium directly. In recent years, micro- controllers have become cheaper and easier to use.</p>
+                    <p>In the past, using electronics meant having to deal with engineers, and building circuits one small component at a time.These issues kept creative people from experimenting with the medium directly. In recent years, micro- controllers
+                        have become cheaper and easier to use.</p>
                 </section>
                 <section>
                     <p>The progress that has been made with Arduino has been to bring these tools one step closer to the non expert allowing people to start building things after only two or three days of a workshop.
@@ -285,7 +292,9 @@ LED Resistor calculator: <a href="http://led.linear1.org/1led.wiz"></a></p>
             </section>
             <section>
                 <section>
-                    <p>This next lesson get you up and running with the Arduino software and uploading a sketch to the Arduino board. Once you've completed this step we can continue to the really interesting stuff, which is when we start writing our own sketches!</p>
+                    <p>This next lesson get you up and running with the Arduino software and uploading a sketch to the Arduino board. Once you've completed this step we can continue to the really interesting stuff, which is when we start writing our own
+                        sketches!
+                    </p>
                     <a href="#" class="navigate-down">
                     </a>
                 </section>
@@ -298,8 +307,7 @@ LED Resistor calculator: <a href="http://led.linear1.org/1led.wiz"></a></p>
                     <p>Parts are pretty much the same from the first excercise</p>
                 </section>
                 <section>
-                    <h3>Connect GND on the arduino
-to the ground strip on the breadboard</h3>
+                    <h3>Connect GND on the arduino to the ground strip on the breadboard</h3>
                     <img src="img/led_step1.png" height="450">
                 </section>
                 <section>
@@ -376,7 +384,8 @@ void loop() {
                         <pre><b>void setup()<br>
 {
 pinMode(LED, OUTPUT); // sets the digital // pin as output
-}<br><br></b></pre> pinMode tells Arduino how to configure a certain pin. Digital pins can be used either as INPUT or OUTPUT. In this case, we need an output pin to control our LED, so we place the number of the pin and its mode inside the parentheses.
+}<br><br></b></pre> pinMode tells Arduino how to configure a certain pin. Digital pins can be used either as INPUT or OUTPUT. In this case, we need an output pin to control our LED, so we place the number of the pin and its mode
+                        inside the parentheses.
                         <br>
                         <br> pinMode is a function, and the words (or numbers) specified inside the parentheses are arguments. INPUT and OUTPUT are keywords in the Arduino language.</p>
                 </section>
@@ -401,7 +410,9 @@ pinMode(LED, OUTPUT); // sets the digital // pin as output
                         <br>
                         <br> The magic here is when software becomes hardware.When you write digitalWrite(LED, HIGH), it turns the output pin to 5 V, and if you connect an LED, it will light up.
                         <br>
-                        <br> So at this point in your code, an instruction in software makes something happen in the physical world by controlling the flow of electricity to the pin. We can translate this into something more visible with the LED as our actuator.</p>
+                        <br> So at this point in your code, an instruction in software makes something happen in the physical world by controlling the flow of electricity to the pin. We can translate this into something more visible with the LED as our
+                        actuator.
+                    </p>
                 </section>
                 <section>
                     <p>
@@ -504,21 +515,21 @@ void loop()
                 </section>
                 <section>
                     <ul>
-                    <li>Parts for this project</li>
-<li>Solderless Breadboard</li>
-<li>9 x Flexible Wire Jumpers - 8 x LEDs(red)</li>
-<li>8 x 220 Ohm Resistors(red, red violet)</li>
-<li>Arduino Duo board</li>
-<li>USB Cable</li>
+                        <li>Parts for this project</li>
+                        <li>Solderless Breadboard</li>
+                        <li>9 x Flexible Wire Jumpers - 8 x LEDs(red)</li>
+                        <li>8 x 220 Ohm Resistors(red, red violet)</li>
+                        <li>Arduino Duo board</li>
+                        <li>USB Cable</li>
                     </ul>
                 </section>
                 <section data-background="img/knightSteps/knightSteps.001.jpg" data-background-size="1000px">
                 </section>
-<section data-background="img/knightSteps/knightSteps.002.jpg" data-background-size="1000px" data-background-transition="zoom">
+                <section data-background="img/knightSteps/knightSteps.002.jpg" data-background-size="1000px" data-background-transition="zoom">
                 </section>
-<section data-background="img/knightSteps/knightSteps.003.jpg" data-background-size="1000px" data-background-transition="zoom">
+                <section data-background="img/knightSteps/knightSteps.003.jpg" data-background-size="1000px" data-background-transition="zoom">
                 </section>
-<section data-background="img/knightSteps/knightSteps.004.jpg" data-background-size="1000px" data-background-transition="zoom">
+                <section data-background="img/knightSteps/knightSteps.004.jpg" data-background-size="1000px" data-background-transition="zoom">
                 </section>
                 <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
                     <h2 class="intro">Upload 'KnightRider1.ino'</h2>
@@ -527,7 +538,11 @@ void loop()
                     <h2 class="intro">Upload 'KnightRiderForLoop.ino'</h2>
                 </section>
                 <section>
-                <a href="http://playground.arduino.cc/uploads/Main/arduino_comic_v0004.pdf">Homework!</a>
+                    <a href="http://playground.arduino.cc/uploads/Main/arduino_comic_v0004.pdf">Homework!</a>
+                </section>
+                <section>
+                    <pHomework: make an account on hackster.io and go to the target open house. Write 3 paragraphs about a device you would like to make>
+                        </p>
                 </section>
 
             </section>
@@ -536,49 +551,49 @@ void loop()
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
     <script>
-    // Full list of configuration options available at:
-    // https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
 
-        transition: 'convex', // none/fade/slide/convex/concave/zoom
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
 
-        // Optional reveal.js plugins
-        dependencies: [{
-            src: 'lib/js/classList.js',
-            condition: function() {
-                return !document.body.classList;
-            }
-        }, {
-            src: 'plugin/markdown/marked.js',
-            condition: function() {
-                return !!document.querySelector('[data-markdown]');
-            }
-        }, {
-            src: 'plugin/markdown/markdown.js',
-            condition: function() {
-                return !!document.querySelector('[data-markdown]');
-            }
-        }, {
-            src: 'plugin/highlight/highlight.js',
-            async: true,
-            condition: function() {
-                return !!document.querySelector('pre code');
-            },
-            callback: function() {
-                hljs.initHighlightingOnLoad();
-            }
-        }, {
-            src: 'plugin/zoom-js/zoom.js',
-            async: true
-        }, {
-            src: 'plugin/notes/notes.js',
-            async: true
-        }]
-    });
+            // Optional reveal.js plugins
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                condition: function() {
+                    return !!document.querySelector('pre code');
+                },
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }]
+        });
     </script>
 </body>
 
