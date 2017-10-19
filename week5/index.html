@@ -102,7 +102,7 @@ app.listen(3000, function () {
                 </section>
                 <section>
                     <h3>Install Express</h3>
-                    <h3>Type: sudo npm install --express</h3>
+                    <h3>Type: npm install --save express</h3>
                 </section>
                 <section>
                     <ul>
@@ -111,7 +111,7 @@ app.listen(3000, function () {
                         <li class="fragment">Save as 'index.js' in your new folder</li>
                     </ul>
                     <pre><code class="hljs" data-trim contenteditable width>
-//import express 
+//import express
 var express = require('express');
 //create express object named app
 var app = express();
@@ -132,7 +132,8 @@ app.get('/', function(req, res) {
                     <ul>
                         <li>Create a new file in Sublime</li>
                         <li class="fragment">Enter the code below without the comments:</li>
-                        <li class="fragment">Save as 'index.html' in your new folder</li>
+                        <li class="fragment">Create a new folder called 'public' in the webserver folder</li>
+                        <li class="fragment">Save as 'index.html' in your new public folder</li>
                     </ul>
                     <pre><code class="hljs" data-trim contenteditable width>
 <!DOCTYPE html>
@@ -147,7 +148,10 @@ app.get('/', function(req, res) {
  </code></pre>
                 </section>
                 <section>
-                    <h3>Open http://localhost:3030/ in the browser</h3>
+                  <ul>
+                      <li>In the Terminal, run node: node index.js</li>
+                      <li class="fragment">Open <a href="http://localhost:3030/" target="_new">http://localhost:3030/</a> in the browser</li>
+                  </ul>
                 </section>
                 <section>
                     <h3>Takes a few minutes to add some html to the page</h3>
@@ -170,20 +174,17 @@ app.get('/', function(req, res) {
             </section>
             <section>
                 <h3>CD to websocket_simple</h3>
-                <p>npm Install</p>
-                <p>node app.js</p>
+                <p>npm install</p>
+                <p>nodemon app.js</p>
+                <p>Open <a href="http://localhost:3000/" target="_new">http://localhost:3000/</a> in the browser</p>
+                <p>Try changing the timer interval and watch nodemon automatically restart, and see the effect in the browser.</p>
             </section>
 
             <section>
                 <p>Packages to connect with Arduino</p><br>
                 <p><a href=" https://www.npmjs.com/package/serialport">Serialport Module</a></p><br>
             </section>
-            <section>
-                <p>Packages to connect with Arduino</p><br>
-                <p><a href="https://www.npmjs.com/package/johnny-five">Johnny-Five</a></p><br>
-                <p><a href="http://johnny-five.io/">http://johnny-five.io/</a></p><br>
-            </section>
-            </section>
+
             <section>
                 <section>
                     <h4>Project 1</h4>
@@ -192,49 +193,50 @@ app.get('/', function(req, res) {
                     <a href="#" class="navigate-down">
                     </a>
                 </section>
-                <section>
-                    <h4>Project 1</h4>
-                    <p>Connect a potentiometer</p>
-                    <img src="img/pot1.jpg" height="500">
-
-                </section>
 
                 <section>
                     <h4>Project 1</h4>
-                    <p>1: Upload AnalogInOutSerial.ino to arduino from AnalogInOutSerial in the code folder</p><br>
+                    <p>1: Upload AnalogInOutSerial.ino to arduino from AnalogInOutSerial in the code folder</p>
                     <p>2: cd into serialbasic in the code folder && npm install</p>
-                    <p>3: Run node index.js from the serialbasic from serialbasic in the code folder</p>
+                    <p>3: Edit code: make sure serial port name '/dev/cu.usbmodem14111' matches your device (see Port setting in Arduino)</p>
+                    <p>4: Run node index.js from the serialbasic from serialbasic in the code folder</p>
 
                     </a>
                 </section>
                 <section>
                     <h4>Project 1</h4>
                     <p>1: cd into serial_ws in the code folder && npm install</p>
-                    <p>2: Run node index.js from the serialbasic from serial_ws in the code folder</p><br>
-                    <p>3: Open web browser go to
-                        <a href="http://localhost:3000"></a>http://localhost:3000</p>
+                    <p>2: Edit code: make sure serial port name '/dev/cu.usbmodem14111' matches your device (see Port setting in Arduino)</p>
+                    <p>3: Run node index.js from the serialbasic from serial_ws in the code folder</p>
+                    <p>4: Open web browser go to
+                        <a href="http://localhost:3000">http://localhost:3000</a></p>
                     </a>
                 </section>
                 <section>
+                  <div style="float: left; width: 70%">
                     <img src="img/joystick.png">
-                </section>
-                <section>
+                  </div>
+                  <div style="float: left; width: 30%">
+                    <br>
                     <h4>Connections</h4>
                     <p>GND -> GND</p>
                     <p>5V -> 5V</p>
-                    <p>Vrx -> A1</p>
-                    <p>Vry -> A0</p>
+                    <p>Vrx -> A0</p>
+                    <p>Vry -> A1</p>
                     <p>SW -> 2</p>
+                  </div>
                 </section>
                 <section>
                     <p>Upload joystick with arduino</p>
                 </section>
 
                 <section>
-                    <p>cd 'joystick_p5js' && npm install && node app.js && localhost:3000 in the browser</p>
+                    <p>cd 'joystick_p5js' && npm install && node app.js && <a href="http://localhost:3000" target="_new">localhost:3000</a> in the browser</p>
+                    <p>Edit code: make sure serial port name '/dev/cu.usbmodem14111' matches your device (see Port setting in Arduino)</p>
                 </section>
+              </section>
 
-
+              <section>
                 <section data-background="img/johnny-five-fb.png" data-background-transition="zoom">
 
                 </section>
@@ -377,10 +379,7 @@ led.pulse({
                     <h2 class="intro">'node app.js'</h2>
                 </section>
 
-
-
             </section>
-
 
             <section>
 
@@ -388,30 +387,22 @@ led.pulse({
                     <h3>Project: Twitter Lamp</h3>
                     <img src="img/Twitter_logo_blue.png" height="400"><img src="img/botrobot.jpg" height="400">
                 </section>
-                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
-                    <h3>Keep the same circuit</h3>
+                <section data-background="img/led_1.png" data-background-size="1000px" data-background-transition="zoom">
+
                 </section>
                 <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
                     <h3>Go Here:</h3><br>
                     <a href="https://apps.twitter.com/">https://apps.twitter.com/</a>
                     <img src="img/twit.png" height="400"><br>
-                    <h3>create a new app</h3>
+                    <h3>Sign up/in, create a new app</h3>
                 </section>
                 <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
                     <h3>Gather tokens and keys</h3><br>
                     <img src="img/tw_tokens.png" height="400"><br>
                 </section>
                 <section>
-                    <b><p>Update code in code/twitter-ard/app.js</p></b></br>
-                    <code class="hljs" data-trim contenteditable><pre>
-var client = new Twitter({
-    consumer_key: 'Enter Here',
-    consumer_secret: 'Enter Here',
-    access_token_key: 'Enter Here',
-    access_token_secret: 'Enter Here'
-})
-</pre>
-                        </code>
+                    <b><p>In the terminal, in the twitter-ard folder:<br>cp example.env .env</p></b></br>
+                    <b><p>Edit .env and add your tokens and keys</p></b></br>
                 </section>
 
 
@@ -452,16 +443,8 @@ var client = new Twitter({
                     <img src="img/button.png" height="600">
                 </section>
                 <section>
-                    <b><p>Update code in code/twitter-ard/app.js</p></b></br>
-                    <code class="hljs" data-trim contenteditable><pre>
-var client = new Twitter({
-    consumer_key: 'Enter Here',
-    consumer_secret: 'Enter Here',
-    access_token_key: 'Enter Here',
-    access_token_secret: 'Enter Here'
-})
-</pre>
-                        </code>
+                    <b><p>In the terminal, in the twitter-button folder:<br>cp example.env .env</p></b></br>
+                    <b><p>Edit .env and add your tokens and keys</p></b></br>
                 </section>
                 <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
                     <h2 class="intro">From the terminal:</h2>

@@ -1,5 +1,5 @@
-var com = require("serialport");
-//import express 
+var SerialPort = require("serialport");
+//import express
 var express = require('express');
 //create express object named app
 var app = express();
@@ -8,9 +8,9 @@ var app = express();
 var server = app.listen(3000);
 var io = require('socket.io')(server);
 
-var serialPort = new com.SerialPort("/dev/tty.usbmodem1D1131", {
+var serialPort = new SerialPort("/dev/cu.usbmodem14111", {
     baudrate: 9600,
-    parser: com.parsers.readline('\r\n')
+    parser: SerialPort.parsers.readline('\r\n')
 });
 
 //expose the local public folder for inluding files js, css etc..

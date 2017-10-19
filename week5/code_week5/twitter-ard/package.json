@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "johnny-five": "^0.8.106",
+    "dotenv": "^4.0.0",
+    "johnny-five": "^0.11.6",
     "twitter": "^1.2.5"
   }
 }

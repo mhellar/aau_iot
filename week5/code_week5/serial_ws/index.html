@@ -9,8 +9,8 @@
         var socket = io.connect('//localhost:3000');
         socket.on('data', function(data) {
             console.log(data);
-            $('#incoming').text(data.val);
-            $("img").attr("width", data.val);
+            $('#incoming').text(data);
+            $("img").attr("width", data);
         });
         socket.on('error', function() {
             console.error(arguments)
