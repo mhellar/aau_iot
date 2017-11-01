@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Physical Computing: 2</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <figure>
+                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
+                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
+                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
+                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
+                </figure>
+            </section>
+
+            <section data-background="img/72-points-mesh.svg" data-background-transition="zoom">
+                <p><b>Slides are here: <br>http://mhellar.github.io/physcomp2/1</b></p>
+                <br>
+                <p><b>Grab the code here: <br><a href="http://bit.ly/2ePLlny">http://bit.ly/2ePLlny</a></b></p>
+            </section>
+            <section>
+                <ul>
+                    <h3>Topics for This Week:</h3>
+                    <li class="fragment">Joystick with P5.js</li>
+                    <li class="fragment">The Johnny Five Library</li>
+                    <li class="fragment">Creating a Twitter Lamp</li>
+                    <li class="fragment">Create and Twitter Button</li>
+                    <li class="fragment">Using a Liquid Crystal Display</li>
+                </ul>
+            </section>
+            <section>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/1Cp7aD0q63g" frameborder="0" allowfullscreen></iframe>
+            </section>
+            <section>
+                <img src="img/joystick.png">
+            </section>
+            <section>
+                <h4>Connections</h4>
+                <p>GND -> GND</p>
+                <p>5V -> 5V</p>
+                <p>Vrx -> A1</p>
+                <p>Vry -> A0</p>
+                <p>SW -> 2</p>
+            </section>
+            <section>
+                <p>Upload joystick with arduino</p>
+            </section>
+
+            <section>
+                <p>cd 'joystick_p5js' && npm install && node app.js && localhost:3000 in the browser</p>
+            </section>
+
+
+            <section data-background="img/johnny-five-fb.png" data-background-transition="zoom">
+
+            </section>
+            <section data-background="img/sc_poster.jpg" data-background-size="600px" data-background-transition="zoom">
+
+            </section>
+
+            <section>
+                <p>
+                    Johnny-Five is the original JavaScript Robotics programming framework. Released by Bocoup in 2012, Johnny-Five is maintained by a community of passionate software developers and hardware engineers. Over 75 developers have made contributions towards building
+                    a robust, extensible and composable ecosystem.
+                </p>
+            </section>
+
+            <section data-background="img/led_1.png" data-background-size="1000px" data-background-transition="zoom">
+
+            </section>
+
+            <section>
+                <h3>Starting a new Node app</h3>
+                <ul>
+                    <li>Create a new folder named, 'J5_led_1'</li>
+                    <li class="fragment">Open the terminal</li>
+                    <li class="fragment">type 'cd' & space</li>
+                    <li class="fragment">drag your folder to the terminal and hit return</li>
+                </ul>
+            </section>
+            <section>
+
+                <ul>
+                    <li>Now we are in our new folder in the terminal</li>
+                    <li class="fragment">Type 'npm init' & hit return</li>
+                    <li class="fragment">fill out the questions</li>
+                    <li class="fragment">drag your folder onto Sublime Text</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>type 'npm install johnny-five --save</li>
+                    <li class="fragment">Have a look at the package.json file that was generated</li>
+                    <li class="fragment">This stores metadata about our app</li>
+                </ul>
+            </section>
+
+            <section>
+                <b><p>contents of package.json</p></b></br>
+                <code class="hljs" data-trim contenteditable><pre>
+{
+  "name": "J5_led_1",
+  "version": "1.0.0",
+  "description": "A Johnny Five LED app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "johnny-five": "^0.8.106"
+  }
+}
+</pre>
+                        </code>
+            </section>
+
+            <section>
+                <h3>create a new file, enter the following code and save as index.js in your new folder</h3>
+                <code class="hljs" data-trim contenteditable><pre>
+var five = require("johnny-five");
+var board = new five.Board();
+
+board.on("ready", function() {
+  var led = new five.Led(6);
+  led.blink(500);
+});
+</pre>
+                        </code>
+            </section>
+            <section>
+                <ul>
+                    <li>Upload firmata to arduino</li>
+                    <li class="fragment">run 'node index.js' at the terminal</li>
+                </ul>
+            </section>
+            <section>
+                <h3>try a pulse</h3>
+                <code class="hljs" data-trim contenteditable><pre>
+var five = require("johnny-five");
+var board = new five.Board();
+
+board.on("ready", function() {
+  var led = new five.Led(6);
+led.pulse(500);
+});
+</pre>
+                        </code>
+            </section>
+            <section>
+                <b><p>Led Animations</p></b></br>
+                <code class="hljs" data-trim contenteditable><pre>
+var five = require("johnny-five");
+var board = new five.Board();
+
+board.on("ready", function() {
+  var led = new five.Led(6);
+led.pulse({
+  easing: "linear",
+  duration: 3000,
+  cuePoints: [0, 0.2, 0.4, 0.6, 0.8, 1],
+  keyFrames: [0, 10, 0, 50, 0, 255],
+  onstop: function() {
+    console.log("Animation stopped");
+  }
+});
+});
+</pre>
+                        </code>
+            </section>
+
+            <section>
+                <p>Reference</i>
+                </p><br>
+                <a href="http://johnny-five.io/api/led/">LED API</a><br>
+                <a href="http://johnny-five.io/api/animation/#segment-properties">Animation API</a><br>
+                <a href="http://johnny-five.io/api/">Full API</a>
+
+            </section>
+
+            <section>
+                <h4>Project 1</h4>
+                <p>Connect a servo</p>
+                <img src="img/servo.png" height="500">
+            </section>
+
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h2 class="intro">From the terminal:</h2>
+                <br>
+                <h2 class="intro">'cd j5SocketInputServo'</h2>
+                <br>
+                <h2 class="intro">'node app.js'</h2>
+            </section>
+
+
+
+            </section>
+
+            <!-- <section>
+                <section>
+                    <h3>Project: Twitter Lamp</h3>
+                    <img src="img/Twitter_logo_blue.png" height="400"><img src="img/botrobot.jpg" height="400">
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                    <h3>Make this circuit</h3>
+                    <img src="img/led_1.png" height="400">
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                    <h3>Go Here:</h3><br>
+                    <a href="https://apps.twitter.com/">https://apps.twitter.com/</a>
+                    <img src="img/twit.png" height="400"><br>
+                    <h3>create a new app</h3>
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                    <h3>Gather tokens and keys</h3><br>
+                    <img src="img/tw_tokens.png" height="400"><br>
+                </section>
+                <section>
+                    <b><p>Update code in code/twitter-ard/app.js</p></b></br>
+                    <code class="hljs" data-trim contenteditable><pre>
+var client = new Twitter({
+    consumer_key: 'Enter Here',
+    consumer_secret: 'Enter Here',
+    access_token_key: 'Enter Here',
+    access_token_secret: 'Enter Here'
+})
+</pre>
+                        </code>
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                    <h2 class="intro">From the terminal:</h2>
+                    <br>
+                    <h2 class="intro">'cd twitter-ard'</h2>
+                    <br>
+                    <h2 class="intro">'node app.js'</h2>
+                </section>
+                <section data-background="img/terminal.gif" data-background-size="1200px">
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                    <h2 class="intro">From the terminal:</h2>
+                    <br>
+                    <h2 class="intro">'cd twitter-ard-location'</h2>
+                    <br>
+                    <h2 class="intro">'node app.js'</h2>
+                </section>
+                <section>
+                    <p>Twitter API Reference</i>
+                    </p>
+                    <br>
+                    <a href="https://dev.twitter.com/streaming/overview/request-parameters#language">Here</a>
+                    <br>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h3>Project: Twitter Button</h3>
+                    <img src="img/internet_earth.png" height="400"><img src="img/Push-Button-Switch.jpg" height="400">
+                    <a href="#" class="navigate-down">
+                    </a>
+                </section>
+                <section>
+                    <img src="img/button.png" height="600">
+                </section>
+                <section>
+                    <b><p>Update code in code/twitter-ard/app.js</p></b></br>
+                    <code class="hljs" data-trim contenteditable><pre>
+var client = new Twitter({
+    consumer_key: 'Enter Here',
+    consumer_secret: 'Enter Here',
+    access_token_key: 'Enter Here',
+    access_token_secret: 'Enter Here'
+})
+</pre>
+                        </code>
+                </section>
+                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                    <h2 class="intro">From the terminal:</h2>
+                    <br>
+                    <h2 class="intro">'cd twitter-button'</h2>
+                    <br>
+                    <h2 class="intro">'node app.js'</h2>
+                </section>
+            </section> -->
+            <section>
+                <section>
+                    <h3>Let's hook up the Liquid Crystal Display</h3>
+                    <img src="img/LCD_Base.png" height="400"><br>
+                    <a href="https://www.arduino.cc/en/Tutorial/HelloWorld">Detailed Reference</a>
+                    <a href="#" class="navigate-down">
+                    </a>
+                </section>
+                <section>
+                    <h3>Unplug your Arduino from USB</h3><br>
+                    <h3>Hook up according to the diagram</h3><br>
+                    <h3>Call out if you need help!</h3>
+                </section>
+                <section>
+                    <h3>Arduino Examples:</h3>
+                </section>
+                <section>
+                    <h3>code7/HelloWorld/HelloWorld.ino
+                </section>
+                <section>
+                    <h3>code7/Display/Display.ino
+                </section>
+                <section>
+                    <h3>code7/SerialDisplay/SerialDisplay.ino
+                </section>
+                <section>
+                    <a href="https://www.arduino.cc/en/Reference/LiquidCrystal">Arduino Liquid Crystal Display Library</a>
+                </section>
+                <section>
+                    <h3>Johnny Five Examples</h3>
+                    <a href="#" class="navigate-down">
+                    </a>
+                </section>
+                <section>
+                    <h3>Upload Firmata to Arduino</h3>
+                </section>
+                <section>
+                    <h3>code7/j5_lcd_weather</h3><br>
+                    <h3>node app.js</h3>
+                </section>
+                <section>
+                    <h3>code7/j5_lcd_bart</h3><br>
+                    <h3>node app.js</h3>
+                </section>
+            </section>
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                condition: function() {
+                    return !!document.querySelector('pre code');
+                },
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }]
+        });
+    </script>
+</body>
+
+</html>
