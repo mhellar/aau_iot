@@ -92,9 +92,6 @@
 			// Flags if it should be possible to pause the presentation (blackout)
 			pause: true,
 
-			// Flags if speaker notes should be visible to all viewers
-			showNotes: false,
-
 			// Number of milliseconds between automatically proceeding to the
 			// next slide, disabled when set to 0, this value can be overwritten
 			// by using a data-autoslide attribute on your slides
@@ -460,17 +457,13 @@
 
 		// Arrow controls
 		createSingletonNode( dom.wrapper, 'aside', 'controls',
-			'<button class="navigate-left" aria-label="previous slide"></button>' +
-			'<button class="navigate-right" aria-label="next slide"></button>' +
-			'<button class="navigate-up" aria-label="above slide"></button>' +
-			'<button class="navigate-down" aria-label="below slide"></button>' );
+			'<div class="navigate-left"></div>' +
+			'<div class="navigate-right"></div>' +
+			'<div class="navigate-up"></div>' +
+			'<div class="navigate-down"></div>' );
 
 		// Slide number
 		dom.slideNumber = createSingletonNode( dom.wrapper, 'div', 'slide-number', '' );
-
-		// Element containing notes that are visible to the audience
-		dom.speakerNotes = createSingletonNode( dom.wrapper, 'div', 'speaker-notes', null );
-		dom.speakerNotes.setAttribute( 'data-prevent-swipe', '' );
 
 		// Overlay graphic which is displayed during the paused mode
 		createSingletonNode( dom.wrapper, 'div', 'pause-overlay', null );
@@ -573,19 +566,6 @@
 					background.style.height = ( pageHeight * numberOfPages ) + 'px';
 					background.style.top = -top + 'px';
 					background.style.left = -left + 'px';
-				}
-
-				// If we're configured to `showNotes`, inject them into each slide
-				if( config.showNotes ) {
-					var notes = getSlideNotes( slide );
-					if( notes ) {
-						var notesElement = document.createElement( 'div' );
-						notesElement.classList.add( 'speaker-notes' );
-						notesElement.classList.add( 'speaker-notes-pdf' );
-						notesElement.innerHTML = notes;
-						notesElement.style.bottom = ( 40 - top ) + 'px';
-						slide.appendChild( notesElement );
-					}
 				}
 			}
 
@@ -874,13 +854,6 @@
 		// Exit the paused mode if it was configured off
 		if( config.pause === false ) {
 			resume();
-		}
-
-		if( config.showNotes ) {
-			dom.speakerNotes.classList.add( 'visible' );
-		}
-		else {
-			dom.speakerNotes.classList.remove( 'visible' );
 		}
 
 		if( config.mouseWheel ) {
@@ -1557,20 +1530,13 @@
 				transformSlides( { layout: '' } );
 			}
 			else {
-				// Use zoom to scale up in desktop Chrome so that content
-				// remains crisp. We don't use zoom to scale down since that
-				// can lead to shifts in text layout/line breaks.
-				if( scale > 1 && !isMobileDevice && /chrome/i.test( navigator.userAgent ) && typeof dom.slides.style.zoom !== 'undefined' ) {
+				// Prefer zooming in desktop Chrome so that content remains crisp
+				if( !isMobileDevice && /chrome/i.test( navigator.userAgent ) && typeof dom.slides.style.zoom !== 'undefined' ) {
 					dom.slides.style.zoom = scale;
-					dom.slides.style.left = '';
-					dom.slides.style.top = '';
-					dom.slides.style.bottom = '';
-					dom.slides.style.right = '';
 					transformSlides( { layout: '' } );
 				}
 				// Apply scale transform as a fallback
 				else {
-					dom.slides.style.zoom = '';
 					dom.slides.style.left = '50%';
 					dom.slides.style.top = '50%';
 					dom.slides.style.bottom = 'auto';
@@ -2188,7 +2154,6 @@
 		updateBackground();
 		updateParallax();
 		updateSlideNumber();
-		updateNotes();
 
 		// Update the URL hash
 		writeURL();
@@ -2230,7 +2195,6 @@
 		updateBackground( true );
 		updateSlideNumber();
 		updateSlidesVisibility();
-		updateNotes();
 
 		formatEmbeddedContent();
 		startEmbeddedContent( currentSlide );
@@ -2480,22 +2444,6 @@
 	}
 
 	/**
-	 * Pick up notes from the current slide and display tham
-	 * to the viewer.
-	 *
-	 * @see `showNotes` config value
-	 */
-	function updateNotes() {
-
-		if( config.showNotes && dom.speakerNotes && currentSlide && !isPrintingPDF() ) {
-
-			dom.speakerNotes.innerHTML = getSlideNotes() || '';
-
-		}
-
-	}
-
-	/**
 	 * Updates the progress bar to reflect the current slide.
 	 */
 	function updateProgress() {
@@ -2664,7 +2612,7 @@
 			// Start video playback
 			var currentVideo = currentBackground.querySelector( 'video' );
 			if( currentVideo ) {
-				if( currentVideo.currentTime > 0 ) currentVideo.currentTime = 0;
+				currentVideo.currentTime = 0;
 				currentVideo.play();
 			}
 
@@ -3203,6 +3151,7 @@
 				// Attempt to create a named link based on the slide's ID
 				var id = currentSlide.getAttribute( 'id' );
 				if( id ) {
+					id = id.toLowerCase();
 					id = id.replace( /[^a-zA-Z0-9\-\_\:\.]/g, '' );
 				}
 
@@ -3331,32 +3280,6 @@
 		}
 
 		return horizontalBackground;
-
-	}
-
-	/**
-	 * Retrieves the speaker notes from a slide. Notes can be
-	 * defined in two ways:
-	 * 1. As a data-notes attribute on the slide <section>
-	 * 2. As an <aside class="notes"> inside of the slide
-	 */
-	function getSlideNotes( slide ) {
-
-		// Default to the current slide
-		slide = slide || currentSlide;
-
-		// Notes can be specified via the data-notes attribute...
-		if( slide.hasAttribute( 'data-notes' ) ) {
-			return slide.getAttribute( 'data-notes' );
-		}
-
-		// ... or using an <aside class="notes"> element
-		var notesElement = slide.querySelector( 'aside.notes' );
-		if( notesElement ) {
-			return notesElement.innerHTML;
-		}
-
-		return null;
 
 	}
 
@@ -3782,21 +3705,6 @@
 
 	}
 
-	/**
-	 * Checks if the target element prevents the triggering of
-	 * swipe navigation.
-	 */
-	function isSwipePrevented( target ) {
-
-		while( target && typeof target.hasAttribute === 'function' ) {
-			if( target.hasAttribute( 'data-prevent-swipe' ) ) return true;
-			target = target.parentNode;
-		}
-
-		return false;
-
-	}
-
 
 	// --------------------------------------------------------------------//
 	// ----------------------------- EVENTS -------------------------------//
@@ -3856,20 +3764,8 @@
 		// keyboard modifier key is present
 		if( activeElementIsCE || activeElementIsInput || (event.shiftKey && event.keyCode !== 32) || event.altKey || event.ctrlKey || event.metaKey ) return;
 
-		// While paused only allow resume keyboard events; 'b', '.''
-		var resumeKeyCodes = [66,190,191];
-		var key;
-
-		// Custom key bindings for togglePause should be able to resume
-		if( typeof config.keyboard === 'object' ) {
-			for( key in config.keyboard ) {
-				if( config.keyboard[key] === 'togglePause' ) {
-					resumeKeyCodes.push( parseInt( key, 10 ) );
-				}
-			}
-		}
-
-		if( isPaused() && resumeKeyCodes.indexOf( event.keyCode ) === -1 ) {
+		// While paused only allow "unpausing" keyboard events (b and .)
+		if( isPaused() && [66,190,191].indexOf( event.keyCode ) === -1 ) {
 			return false;
 		}
 
@@ -3878,7 +3774,7 @@
 		// 1. User defined key bindings
 		if( typeof config.keyboard === 'object' ) {
 
-			for( key in config.keyboard ) {
+			for( var key in config.keyboard ) {
 
 				// Check if this binding matches the pressed key
 				if( parseInt( key, 10 ) === event.keyCode ) {
@@ -3970,8 +3866,6 @@
 	 */
 	function onTouchStart( event ) {
 
-		if( isSwipePrevented( event.target ) ) return true;
-
 		touch.startX = event.touches[0].clientX;
 		touch.startY = event.touches[0].clientY;
 		touch.startCount = event.touches.length;
@@ -3994,8 +3888,6 @@
 	 * Handler for the 'touchmove' event.
 	 */
 	function onTouchMove( event ) {
-
-		if( isSwipePrevented( event.target ) ) return true;
 
 		// Each touch should only trigger one action
 		if( !touch.captured ) {
@@ -4529,9 +4421,6 @@
 
 		// Returns the slide background element at the specified index
 		getSlideBackground: getSlideBackground,
-
-		// Returns the speaker notes string for a slide, or null
-		getSlideNotes: getSlideNotes,
 
 		// Returns the previous slide element, may be null
 		getPreviousSlide: function() {
