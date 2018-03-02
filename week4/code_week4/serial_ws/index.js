@@ -1,28 +1,24 @@
-var com = require("serialport");
-var app = require('express')();
-
-var server = app.listen(3000);
-var io = require('socket.io')(server);
-
-var serialPort = new com.SerialPort("/dev/cu.usbmodem1421", {
-    baudrate: 9600,
-    parser: com.parsers.readline('\r\n')
+const express = require("express");
+const app = express();
+const server = app.listen(3000);
+var path = require("path");
+const io = require("socket.io")(server);
+const SerialPort = require("serialport");
+const Readline = SerialPort.parsers.Readline;
+const port = new SerialPort("/dev/tty.usbmodem1D11741", {
+    baudRate: 9600
 });
 
-//Serve index.html when some make a request of the server
+//expose the local public folder for inluding files js, css etc..
+app.use(express.static("public"));
+
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-serialPort.on('open', function() {
-    console.log('Port open');
-});
+const parser = port.pipe(new Readline({ delimiter: "\r\n" }));
 
-serialPort.on('data', function(data) {
-    io.sockets.emit('data', {
-        val: data
-    });
+parser.on("data", function(data) {
+    io.sockets.emit("data", data);
     console.log(data);
 });
-
-
