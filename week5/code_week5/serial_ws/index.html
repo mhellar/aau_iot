@@ -3,14 +3,13 @@
 
 <head>
     <title>Serial Connect</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script>
         var socket = io.connect('//localhost:3000');
         socket.on('data', function(data) {
             console.log(data);
-            $('#incoming').text(data.val);
-            $("img").attr("width", data.val);
+            $('#incoming').text(data);
         });
         socket.on('error', function() {
             console.error(arguments)
@@ -21,7 +20,6 @@
 <body>
 
     <h1 id="incoming"></h1>
-    <img src="https://apennyformychildishthoughts.files.wordpress.com/2012/03/furby.jpg">
 
 </body>
 

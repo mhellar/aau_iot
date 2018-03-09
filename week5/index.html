@@ -47,33 +47,243 @@
             <section>
                 <ul>
                     <h3>Topics for This Week:</h3>
+                    <li class="fragment">Projection Mapping Excercise</li>
                     <li class="fragment">More NodeJS</li>
-                    <li class="fragment">Javascipt Robotics</li>
-                    <li class="fragment"><a href="http://johnny-five.io">Johhny Five</a></li>
-                    <li class="fragment">Twitter Lamp</li>
-                    <li class="fragment">Twitter Button</li>
-                    <li class="fragment">Hackers Den!</li>
+                    <li class="fragment">Conductive Paint Demo</li>
+                    <li class="fragment">The ESP32 Introduction</li>
                 </ul>
             </section>
             <section>
                 <section>
-                    <h3>
-                        Building out a basic web application with express.
-                    </h3>
+                    <p>Download</p>
+                    <p><a href="https://github.com/glowbox/maptasticjs">https://github.com/glowbox/maptasticjs</a></p>
+                </section>
+
+                <section>
+                    <p>In the terminal type 'sudo npm intstall live-server -g'</p><br>
+                    <p>'cd' into the maptastic js folder</p><br>
+                    <p>Type 'live-server'</p><br>
+                </section>
+                <section>
+                    <p>Wire up 4 buttons</p><br>
+                    <img src="img/buttons.png" height="600">
+                </section>
+
+                <section>
+                    <p>Upload buttons.ino</p><br>
+                </section>
+
+                <section>
+                    <p>Drag serial_ws_maptastic onto you code editor</p><br>
+                    <p>Edit line 8 of index.js to match your serial port</p><br>
+                    <p>CD into the folder && node index.js && open localhost:3000 in the browser</p><br>
+                </section>
+                <section>
+                    <p>Letes test it with the projectors!</p><br>
+                </section>
+                <section>
+                    <img src="img/computer_talk.jpg" height="500">
+                    <p class="fragment">with NodeJS</p>
+                    <a href="#" class="navigate-down">
+                    </a>
+                </section>
+                <section>
+                    <h3>Windows Users Dowload espeak</h3>
+                    <a href="http://espeak.sourceforge.net/download.html">Espeak</a>
+                </section>
+                <section>
+                    <h3>Open a terminal</h3>
+                    <p>Mac Users</p>
+                    <h3>Type 'say' + space + "something to say"</h3>
+                    <p>Windows Users</p>
+                    <h3>Type "C:\\Program Files (x86)\\eSpeak\\command_line\\espeak.exe" + space + "something to say"</h3>
+                </section>
+                <section>
+                    <h3>type 'node speak.js'</h3>
+                    <pre><code class="hljs" data-trim contenteditable width>
+//the child_process library let's us execute command line commands, https://nodejs.org/api/child_process.html
+var exec = require('child_process').exec;
+//This variable stores the command we want to execute, we are going to use the say command
+//Mac users use this line
+var say = 'say ';
+
+//Windows users use this line instead
+//var say = '"C:\\Program Files (x86)\\eSpeak\\command_line\\espeak.exe" ';
+
+//let's make a function that speaks
+function speak(whatosay){
+	//speak the string
+	exec(say + whatosay);
+	//log it to the console
+	console.log(whatosay)
+}
+// call the function
+speak("I just do this");
+ */
+			    </code></pre>
+                    <a href="https://nodejs.org/api/child_process.html">https://nodejs.org/api/child_process.html</a>
+                </section>
+                <section>
+                    <h3>Modify the program, change the voice and what it says.</h3>
+                    <br>
+                    <h3>Save it and then run node app.js</h3>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <img src="img/npm-logo.svg"></img>
+                    <h3>Node Package Manager</h3>
                     <a href="#" class="navigate-down">
                     </a>
                 </section>
                 <section>
                     <p>
-                        Express.js is a Node.js web application server framework, designed for building single-page, multi-page, and hybrid web applications. It is the de facto standard server framework for node.js
+                        NPM is an online repository of JavaScript modules, many of which are specifically written for Node. When you install Node on your computer, you also get a program called npm(Node Package Manger), which provides a convenient interface to this repository.
                     </p>
+                    <br>
+                    <a href="https://www.npmjs.com/">https://www.npmjs.com/</a>
                 </section>
                 <section>
-                    <a href="http://expressjs.com/">Express</a>
+                    <a href="https://github.com/sindresorhus/awesome-nodejs">
+                        <h1>awesome-nodejs</h1>
+                    </a>
+                </section>
+
+                <section>
+                    <img src="img/cowsay.png">
                 </section>
                 <section>
-                    <p>Hello World</p>
-                    <pre><code>
+                    <ul>
+                        <li>Make a new folder called cowsay</li>
+                        <li class="fragment">Open the terminal and type 'cd' + SPACE + drag folder onto the terminal</li>
+                        <li class="fragment">Type 'npm init'</li>
+                        <li class="fragment">Fill out the questions</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li>Drag the folder on to Sublime text</li>
+                        <li class="fragment">Have a look at the package.json file that was created</li>
+                        <li class="fragment">Type 'npm install cowsay --save'</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li>Create a new file in Sublime</li>
+                        <li class="fragment">Enter the code below:</li>
+                        <li class="fragment">Save as 'index.js' in your new folder</li>
+                    </ul>
+                    <pre><code class="hljs" data-trim contenteditable width>
+var cowsay = require("cowsay");
+
+console.log(cowsay.say({
+    text : "I'm a moooodule",
+    e : "oO",
+    T : "U "
+}));
+					</code></pre>
+                </section>
+                <section>
+                    <h3>In the terminal run 'node index.js'</h3>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h3>Introduction to callbacks</h3>
+                    <a href="#" class="navigate-down">
+                    </a>
+                </section>
+                <section>
+                    <h3>Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an <b style="color:red">event-driven, non-blocking I/O model</b> that makes it lightweight and efficient. </h3>
+                </section>
+                <section>
+                    <p>Here is a simple synchronous example, meaning you can read the code top to bottom just like a book:</p>
+                    <pre><code class="hljs" data-trim contenteditable width>
+    var myNumber = 1
+    function addOne() { myNumber++ } // define the function
+    addOne() // run the function
+    console.log(myNumber) // logs out 2
+                        </code></pre>
+                </section>
+                <section>
+                    <p>Here node is firing off addOne() and console.log(myNumber) at the same time</p>
+                    <pre><code class="hljs" data-trim contenteditable width>
+    var fs = require('fs') // require is a special function provided by node
+    var myNumber = undefined // we don't know what the number is yet since it is stored in a file
+    
+    function addOne() {
+      fs.readFile('number.txt', function doneReading(err, fileContents) {
+        myNumber = parseInt(fileContents)
+        myNumber++
+      })
+    }
+    
+    addOne()
+    
+    console.log(myNumber) // logs out undefined -- this line gets run before readFile is done
+                        </code></pre>
+                    <p>Because reading from the filesystem take longer that console.log it returns console.log(myNumber) first. This is non-blocking</p>
+                </section>
+                <section>
+                    <p>Why do we get undefined when we log out the number this time? In this code we use the fs.readFile method, which happens to be an asynchronous method. Usually things that have to talk to hard drives or networks will be asynchronous.
+                        <br> <br> If they just have to access things in memory or do some work on the CPU they will be synchronous.The reason for this is that I/O is reallyyy reallyyy sloowwww. A ballpark figure would be that talking to a hard drive is
+                        about 100,000 times slower than talking to memory (e.g. RAM).</p>
+                </section>
+                <section>
+                    <p>We can fix the code by placing the console.log in the callback.</p>
+                    <pre><code class="hljs" data-trim contenteditable width>
+    var fs = require('fs') // require is a special function provided by node
+    var myNumber = undefined // we don't know what the number is yet since it is stored in a file
+    
+    function addOne() {
+      fs.readFile('number.txt', function doneReading(err, fileContents) {
+        myNumber = parseInt(fileContents)
+        myNumber++
+        console.log(myNumber) // Putting the console.log statement here returns the result I want
+      })
+    }
+    
+    addOne()
+                        </code></pre>
+                </section>
+                <section>
+                    <p>Node does Input/Output in a way that is asynchronous which lets it handle lots of different things simultaneously. For example, if you go down to a fast food joint and order a cheeseburger they will immediately take your order and
+                        then make you wait around until the cheeseburger is ready. In the meantime they can take other orders and start cooking cheeseburgers for other people. <br> <br> Imagine if you had to wait at the register for your cheeseburger,
+                        blocking all other people in line from ordering while they cooked your burger! This is called blocking I/O because all I/O (cooking cheeseburgers) happens one at a time. Node, on the other hand, is non-blocking, which means it
+                        can cook many cheeseburgers at once.</p>
+                </section>
+                <section>
+                    <p>You use Callbacks in Jquery all the time</p>
+                    <pre><code class="hljs" data-trim contenteditable width>
+    $("button").click(function(){
+        $("p").hide(1000);
+        alert("The paragraph is now hidden");
+    });
+                        </code></pre>
+                </section>
+                <section>
+                    <h3>Homework - read this article</h3>
+                    <a href="https://github.com/maxogden/art-of-node#callbacks">Art of Node: Callbacks</a>
+                </section>
+            </section>
+            <section>
+                <h3>
+                    Building out a basic web application with express.
+                </h3>
+                <a href="#" class="navigate-down">
+                </a>
+            </section>
+            <section>
+                <p>
+                    Express.js is a Node.js web application server framework, designed for building single-page, multi-page, and hybrid web applications. It is the de facto standard server framework for node.js
+                </p>
+            </section>
+            <section>
+                <a href="http://expressjs.com/">Express</a>
+            </section>
+            <section>
+                <p>Hello World</p>
+                <pre><code>
 var express = require('express');
 var app = express();
 
@@ -85,32 +295,30 @@ app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
   </code></pre>
-                    <p>req is an object containing information about the HTTP request that raised the event. In response to req, you use res to send back the desired HTTP response.</p>
-                </section>
+                <p>req is an object containing information about the HTTP request that raised the event. In response to req, you use res to send back the desired HTTP response.</p>
+            </section>
 
 
-
-
-                <section>
-                    <p>We can also serve files:</p>
-                    <ul>
-                        <li>Make a new folder called webserver</li>
-                        <li class="fragment">Open the terminal and type 'cd' + SPACE + drag folder onto the terminal</li>
-                        <li class="fragment">Type 'npm init'</li>
-                        <li class="fragment">Fill out the questions</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Install Express</h3>
-                    <h3>Type: sudo npm install --express</h3>
-                </section>
-                <section>
-                    <ul>
-                        <li>Create a new file in Sublime</li>
-                        <li class="fragment">Enter the code below:</li>
-                        <li class="fragment">Save as 'index.js' in your new folder</li>
-                    </ul>
-                    <pre><code class="hljs" data-trim contenteditable width>
+            <section>
+                <p>We can also serve files:</p>
+                <ul>
+                    <li>Make a new folder called webserver</li>
+                    <li class="fragment">Open the terminal and type 'cd' + SPACE + drag folder onto the terminal</li>
+                    <li class="fragment">Type 'npm init'</li>
+                    <li class="fragment">Fill out the questions</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Install Express</h3>
+                <h3>Type: sudo npm install --express</h3>
+            </section>
+            <section>
+                <ul>
+                    <li>Create a new file in Sublime</li>
+                    <li class="fragment">Enter the code below:</li>
+                    <li class="fragment">Save as 'index.js' in your new folder</li>
+                </ul>
+                <pre><code class="hljs" data-trim contenteditable width>
 //import express 
 var express = require('express');
 //create express object named app
@@ -127,14 +335,14 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
                     </code></pre>
-                </section>
-                <section>
-                    <ul>
-                        <li>Create a new file in Sublime</li>
-                        <li class="fragment">Enter the code below without the comments:</li>
-                        <li class="fragment">Save as 'index.html' in your new folder</li>
-                    </ul>
-                    <pre><code class="hljs" data-trim contenteditable width>
+            </section>
+            <section>
+                <ul>
+                    <li>Create a new file in Sublime</li>
+                    <li class="fragment">Enter the code below without the comments:</li>
+                    <li class="fragment">Save as 'index.html' in your new folder</li>
+                </ul>
+                <pre><code class="hljs" data-trim contenteditable width>
 <!DOCTYPE html>
 <!-- <html>
 <head>
@@ -145,19 +353,15 @@ app.get('/', function(req, res) {
 </body>
 </html> -->
  </code></pre>
-                </section>
-                <section>
-                    <h3>Open http://localhost:3030/ in the browser</h3>
-                </section>
-                <section>
-                    <h3>Takes a few minutes to add some html to the page</h3>
-                </section>
             </section>
             <section>
-                <h3>Nodemon is a handy tool</h3>
-                <p>sudo npm install -g nodemon</p>
-                <p>use nodemon in place of node and your app will restart anytime you save a change.</p>
+                <h3>Open http://localhost:3030/ in the browser</h3>
             </section>
+            <section>
+                <h3>Takes a few minutes to add some html to the page</h3>
+            </section>
+            </section>
+
             <section>
                 <p>Websockets:</p>
                 <p>HTML5 WebSocket represents the first major upgrade in the history of web communications. Before WebSocket, all communication between web clients and servers relied only on HTTP. Now, dynamic data can flow freely over WebSocket connections
@@ -175,40 +379,30 @@ app.get('/', function(req, res) {
             </section>
 
             <section>
-                <p>Packages to connect with Arduino</p><br>
-                <p><a href=" https://www.npmjs.com/package/serialport">Serialport Module</a></p><br>
-            </section>
-            <section>
-                <p>Packages to connect with Arduino</p><br>
-                <p><a href="https://www.npmjs.com/package/johnny-five">Johnny-Five</a></p><br>
-                <p><a href="http://johnny-five.io/">http://johnny-five.io/</a></p><br>
+                <h4>Lets combine express, websockets and serialport!</h4>
             </section>
             </section>
             <section>
                 <section>
-                    <h4>Project 1</h4>
                     <p>Connect a potentiometer</p>
                     <img src="img/pot1.jpg" height="500">
                     <a href="#" class="navigate-down">
                     </a>
                 </section>
                 <section>
-                    <h4>Project 1</h4>
                     <p>Connect a potentiometer</p>
                     <img src="img/pot1.jpg" height="500">
 
                 </section>
 
                 <section>
-                    <h4>Project 1</h4>
                     <p>1: Upload AnalogInOutSerial.ino to arduino from AnalogInOutSerial in the code folder</p><br>
                     <p>2: cd into serialbasic in the code folder && npm install</p>
                     <p>3: Run node index.js from the serialbasic from serialbasic in the code folder</p>
-
                     </a>
                 </section>
+
                 <section>
-                    <h4>Project 1</h4>
                     <p>1: cd into serial_ws in the code folder && npm install</p>
                     <p>2: Run node index.js from the serialbasic from serial_ws in the code folder</p><br>
                     <p>3: Open web browser go to
@@ -216,259 +410,42 @@ app.get('/', function(req, res) {
                     </a>
                 </section>
                 <section>
-                    <img src="img/joystick.png">
-                </section>
-                <section>
-                    <h4>Connections</h4>
-                    <p>GND -> GND</p>
-                    <p>5V -> 5V</p>
-                    <p>Vrx -> A1</p>
-                    <p>Vry -> A0</p>
-                    <p>SW -> 2</p>
-                </section>
-                <section>
-                    <p>Upload joystick with arduino</p>
-                </section>
-
-                <section>
-                    <p>cd 'joystick_p5js' && npm install && node app.js && localhost:3000 in the browser</p>
-                </section>
-
-
-                <section data-background="img/johnny-five-fb.png" data-background-transition="zoom">
-
-                </section>
-                <section data-background="img/sc_poster.jpg" data-background-size="600px" data-background-transition="zoom">
-
-                </section>
-
-                <section>
-                    <p>
-                        Johnny-Five is the original JavaScript Robotics programming framework. Released by Bocoup in 2012, Johnny-Five is maintained by a community of passionate software developers and hardware engineers. Over 75 developers have made contributions towards building
-                        a robust, extensible and composable ecosystem.
-                    </p>
-                </section>
-
-                <section data-background="img/led_1.png" data-background-size="1000px" data-background-transition="zoom">
-
-                </section>
-
-                <section>
-                    <h3>Starting a new Node app</h3>
-                    <ul>
-                        <li>Create a new folder named, 'J5_led_1'</li>
-                        <li class="fragment">Open the terminal</li>
-                        <li class="fragment">type 'cd' & space</li>
-                        <li class="fragment">drag your folder to the terminal and hit return</li>
-                    </ul>
-                </section>
-                <section>
-
-                    <ul>
-                        <li>Now we are in our new folder in the terminal</li>
-                        <li class="fragment">Type 'npm init' & hit return</li>
-                        <li class="fragment">fill out the questions</li>
-                        <li class="fragment">drag your folder onto Sublime Text</li>
-                    </ul>
-                </section>
-                <section>
-                    <ul>
-                        <li>type 'npm install johnny-five --save</li>
-                        <li class="fragment">Have a look at the package.json file that was generated</li>
-                        <li class="fragment">This stores metadata about our app</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <b><p>contents of package.json</p></b></br>
-                    <code class="hljs" data-trim contenteditable><pre>
-{
-  "name": "J5_led_1",
-  "version": "1.0.0",
-  "description": "A Johnny Five LED app",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "johnny-five": "^0.8.106"
-  }
-}
-</pre>
-                        </code>
-                </section>
-
-                <section>
-                    <h3>create a new file, enter the following code and save as index.js in your new folder</h3>
-                    <code class="hljs" data-trim contenteditable><pre>
-var five = require("johnny-five");
-var board = new five.Board();
-
-board.on("ready", function() {
-  var led = new five.Led(6);
-  led.blink(500);
-});
-</pre>
-                        </code>
-                </section>
-                <section>
-                    <ul>
-                        <li>Upload firmata to arduino</li>
-                        <li class="fragment">run 'node index.js' at the terminal</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>try a pulse</h3>
-                    <code class="hljs" data-trim contenteditable><pre>
-var five = require("johnny-five");
-var board = new five.Board();
-
-board.on("ready", function() {
-  var led = new five.Led(6);
-led.pulse(500);
-});
-</pre>
-                        </code>
-                </section>
-                <section>
-                    <b><p>Led Animations</p></b></br>
-                    <code class="hljs" data-trim contenteditable><pre>
-var five = require("johnny-five");
-var board = new five.Board();
-
-board.on("ready", function() {
-  var led = new five.Led(6);
-led.pulse({
-  easing: "linear",
-  duration: 3000,
-  cuePoints: [0, 0.2, 0.4, 0.6, 0.8, 1],
-  keyFrames: [0, 10, 0, 50, 0, 255],
-  onstop: function() {
-    console.log("Animation stopped");
-  }
-});
-});
-</pre>
-                        </code>
-                </section>
-
-                <section>
-                    <p>Reference</i>
-                    </p><br>
-                    <a href="http://johnny-five.io/api/led/">LED API</a><br>
-                    <a href="http://johnny-five.io/api/animation/#segment-properties">Animation API</a><br>
-                    <a href="http://johnny-five.io/api/">Full API</a>
-
-                </section>
-
-                <section>
-                    <h4>Project 1</h4>
-                    <p>Connect a servo</p>
-                    <img src="img/servo.png" height="500">
-                </section>
-
-                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
-                    <h2 class="intro">From the terminal:</h2>
-                    <br>
-                    <h2 class="intro">'cd j5SocketInputServo'</h2>
-                    <br>
-                    <h2 class="intro">'node app.js'</h2>
-                </section>
-
-
-
-            </section>
-
-
-            <section>
-
-                <section>
-                    <h3>Project: Twitter Lamp</h3>
-                    <img src="img/Twitter_logo_blue.png" height="400"><img src="img/botrobot.jpg" height="400">
-                </section>
-                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
-                    <h3>Keep the same circuit</h3>
-                </section>
-                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
-                    <h3>Go Here:</h3><br>
-                    <a href="https://apps.twitter.com/">https://apps.twitter.com/</a>
-                    <img src="img/twit.png" height="400"><br>
-                    <h3>create a new app</h3>
-                </section>
-                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
-                    <h3>Gather tokens and keys</h3><br>
-                    <img src="img/tw_tokens.png" height="400"><br>
-                </section>
-                <section>
-                    <b><p>Update code in code/twitter-ard/app.js</p></b></br>
-                    <code class="hljs" data-trim contenteditable><pre>
-var client = new Twitter({
-    consumer_key: 'Enter Here',
-    consumer_secret: 'Enter Here',
-    access_token_key: 'Enter Here',
-    access_token_secret: 'Enter Here'
-})
-</pre>
-                        </code>
-                </section>
-
-
-
-
-                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
-                    <h2 class="intro">From the terminal:</h2>
-                    <br>
-                    <h2 class="intro">'cd twitter-ard'</h2>
-                    <br>
-                    <h2 class="intro">'node app.js'</h2>
-                </section>
-                <section data-background="img/terminal.gif" data-background-size="1200px">
-                </section>
-                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
-                    <h2 class="intro">From the terminal:</h2>
-                    <br>
-                    <h2 class="intro">'cd twitter-ard-location'</h2>
-                    <br>
-                    <h2 class="intro">'node app.js'</h2>
-                </section>
-                <section>
-                    <p>Twitter API Reference</i>
-                    </p>
-                    <br>
-                    <a href="https://dev.twitter.com/streaming/overview/request-parameters#language">Here</a>
-                    <br>
+                    <p>Drag serial_ws_maptastic onto you code editor and lets review!</p><br>
                 </section>
             </section>
             <section>
                 <section>
-                    <h3>Project: Twitter Button</h3>
-                    <img src="img/internet_earth.png" height="400"><img src="img/Push-Button-Switch.jpg" height="400">
-                    <a href="#" class="navigate-down">
-                    </a>
+                    <p>Conductive Paint</p>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4HdRGaZ0bIQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </section>
                 <section>
-                    <img src="img/button.png" height="600">
+                    <p>Conductive Paint Hands On</p>
                 </section>
                 <section>
-                    <b><p>Update code in code/twitter-ard/app.js</p></b></br>
-                    <code class="hljs" data-trim contenteditable><pre>
-var client = new Twitter({
-    consumer_key: 'Enter Here',
-    consumer_secret: 'Enter Here',
-    access_token_key: 'Enter Here',
-    access_token_secret: 'Enter Here'
-})
-</pre>
-                        </code>
+                    <p>Each group should get there own jar</p>
+                    <a href="https://www.amazon.com/Bare-Conductive-Electric-Paint-Combo/dp/B076BSBMK6/ref=sr_1_cc_1?s=aps&ie=UTF8&qid=1520582363&sr=1-1-catcorr&keywords=bare+conductive">Amazon prime link</a>
                 </section>
-                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
-                    <h2 class="intro">From the terminal:</h2>
-                    <br>
-                    <h2 class="intro">'cd twitter-button'</h2>
-                    <br>
-                    <h2 class="intro">'node app.js'</h2>
+            </section>
+            <section>
+                <section>
+                    <p>The ESP32</p>
+                    <img src="img/esp32.jpg" height="400">
+                </section>
+                <section>
+                    <p>ESP32 Pinout</p>
+                    <img src="img/esp32pinout.jpg" height="400">
+                </section>
+                <section>
+                    <p>Homework!!!</p>
+                    <a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather">Read this article!!!</a>
+                </section>
+                <section>
+                    <p>Install for Arduino</p>
+                    <a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/using-with-arduino-ide">ESP for Arduino</a>
+                </section>
+                <section>
+                    <p>Homework!!!</p>
+                    <p>Each group needs to present their 1st draft of a interface next week</p>
                 </section>
             </section>
         </div>
