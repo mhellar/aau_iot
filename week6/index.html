@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="lib/css/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-    document.getElementsByTagName('head')[0].appendChild(link);
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
     </script>
     <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
@@ -31,387 +31,103 @@
             <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
                 <figure>
                     <h2 class="intro">Internet of Things: Week 5</h2 class="intro">
-                        <h2 class="intro">Internet of Things: Week 5</h2 class="intro">
-                        <h2 class="intro">Internet of Things: Week 5</h2 class="intro">
-                        <h2 class="intro">Internet of Things: Week 5</h2 class="intro">                  
-                    </figure>
-                </section>
-                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="90px" data-background-transition="zoom">
-                    <p>Grab the code here: <a href="http://bit.ly/2dSYAYw">http://bit.ly/2dSYAYw</a></p>
-                </section>
-                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="80px" data-background-transition="zoom">
-                    <ul>
-                        <h3>Topics for This Week:</h3>
-                        <li class="fragment">Homework Presentations!</li>
-                        <li class="fragment">Midterm Projects</li>
-                        <li class="fragment">Introduction to NodeJS</li>
-                        <li class="fragment">Node Serial Port</li>
-                    </ul>
-                </section>
-                                <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="40px" data-background-transition="zoom">
-<h1>Homework Presentations!</h1>
-                </section>
-
-<section>
-                <h3>Midterm Projects</h3>
-
-                </section>
-                <section data-background="img/nodejs.png" data-background-transition="zoom">
+                    <h2 class="intro">Internet of Things: Week 5</h2 class="intro">
+                    <h2 class="intro">Internet of Things: Week 5</h2 class="intro">
+                    <h2 class="intro">Internet of Things: Week 5</h2 class="intro">
+                </figure>
             </section>
-                           <section>
-                    <h3>
-                        Download It!<br>
-            <a href="http://nodejs.org/download/">http://nodejs.org/download/</a>
-                    </h3>
-                </section>
-                <section>
-                    <img src="img/v8.png" height="300"><img src="img/chrome.png" height="300">
-                    <br>
-                    <p>The V8 JavaScript Engine is an open source JavaScript engine in the Chrome browser</p>
-                </section>
-
-                <section>
-                    <img src="img/dahl.jpg" height="500">
-                    <br>
-                    <p>NodeJS was created By Ryan Dahl</p>
-                </section>
-                <section>
-                    <br>
-                    <h3>V8 compiles JavaScript to native machine code before executing it, which runs very fast.</h3>
-                </section>
-                <section>
-                    <h3>
-            NODE IS ESSENTIALLY V8 minus the browser, WITH SOME ADDITIONS SO THAT YOU CAN USE IT TO WRITE SERVERS.
-                    <br>
-                    <a href="https://nodejs.org/api/http.html">Node API</a>
-                    </h3>
-                </section>
-
-                <section data-background="https://media.giphy.com/media/q9DjlPe2xGKnS/giphy.gif">
-                    <h3>
-            I just want to make art!
-                    </h3>
-                    <a href="#" class="navigate-down">
-                    </a>
-                </section>
-                <section>
-                    <h3>
-            <a href="http://dashboard.sidlee.com/">Sid Lee Dashboard</a>
-                    </h3>
-                </section>
-                <section>
-                    <iframe src="https://player.vimeo.com/video/31952864?color=c9ff23" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                </section>
-                <section>
-                    <a href="https://wwwwwwwwwwwwwwwwwwwwww.bitnik.org/r/">Random Darknet Shopper</a>
-                </section>
-
-                <section>
-                    <h3>You can run node from the command line<br>
-                 Just type node</h3>
-                    <img src="img/noderepl.png" height="400">
-                    <a href="#" class="navigate-down">
-                    </a>
-                </section>
-                <section>
-                    <h3>A Node program in a file<br>
-                    <h3>Contents of app.js</h3>
-                    <pre><code class="hljs" data-trim contenteditable width>
-/**
- * 01 - Getting Started
- * Declare a variable, perform some math, output the result
- */
-var initialNumber = 0;
-var finalNumber = initialNumber + 10;
-
-console.log(finalNumber);
-                    </code></pre>
-
-                </section>
-                <section>
-                    <h3>simple little programs</h3>
-                    <br>
-                    <p>cd code_node1/simple from the terminal</p><br>
-                    <p>and open in sublime text</p>
-                    <a href="#" class="navigate-down">
-                    </a>
-                </section>
-                <section>
-                    <h3>type 'node app.js'</h3>
-                    <pre><code class="hljs" data-trim contenteditable width>
-/**
- * 01 - Getting Started
- * Declare a variable, perform some math, output the result
- */
-var initialNumber = 0;
-var finalNumber = initialNumber + 10;
-
-console.log(finalNumber);
-                    </code></pre>
-                </section>
-                <section>
-                    <h3>type 'node process.js'</h3>
-                    <pre><code class="hljs" data-trim contenteditable width>
-/**
- * process.js
- * Examples of the process object in nodeJS
- * Working with directories:
- *
- * cwd() : current directory
- *
- */
-
-console.log("Current directory is: " + process.cwd());
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="90px" data-background-transition="zoom">
+                <p>Grab the code here: <a href="http://bit.ly/2dSYAYw">http://bit.ly/2dSYAYw</a></p>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="80px" data-background-transition="zoom">
+                <ul>
+                    <h3>Topics for This Week:</h3>
+                    <li class="fragment">Introdudtion to the esp32</li>
+                    <!-- <li class="fragment">Midterm Projects</li>
+                        <li class="fragment">Introduction to NodeJS</li>
+                        <li class="fragment">Node Serial Port</li> -->
+                </ul>
+            </section>
+            <section>
+                <p>The ESP32</p>
+                <img src="img/esp32.jpg" height="400">
+            </section>
+            <section>
+                <p>ESP32 Pinout</p>
+                <img src="img/esp32pinout.jpg" height="400">
+            </section>
+            <section>
+                <p>Connect an LED, Anode to pin 12 w/resistor, Cathode to GND</p>
+                <img src="img/esp32led.png" height="400">
+            </section>
+            <section>
+                <p>In Arduino set the board to Adafruit ESP32 Feather</p>
+            </section>
+            <section>
+                <p>Upload blink</p>
+            </section>
+            <section>
+                <p>Connect you laptop to the BOTT network</p>
+                <p>password: iotpassword</p>
+            </section>
+            <section>
+                <p>Upload SimpleWiFiServer</p>
+                <p>Once uploaded open the serial monitor at to 115200 baud</p>
+                <p>Hit the reset button on the ESP32, it will connect to wifi and display an IP address go to this address in the browser</p>
+            </section>
 
 
-/*
- * Host information
- *
- * arch : Process Architecture
- * platform : darwin (OS X), freebsd, linux, sunos or win32
- *
- */
-
-console.log("Node is currently running on the " + process.platform
-            + " platform on the " + process.arch + " architecture.");
-
-//******************************************************************************//
-                    </code></pre>
-                    <a href="https://nodejs.org/docs/latest/api/process.html">Node process API</a>
-                </section>
-                <section>
-                    <h3>type 'node argv.js'</h3>
-                    <pre><code class="hljs" data-trim contenteditable width>
-/*
- * Reading command line arguments:
- * 
- * process.argv contains all command-line arguements
- * passed to the node app
- * 
- * The command > node process.js arg1 arg2
- * produces:
- *  0: node
- *  1: /path/to/process.js
- *  2: arg1
- *  3: arg2
- */
-
-process.argv.forEach(function(val, index, array) {
-    console.log(index + ': ' + val);
-});
-                    </code></pre>
-                    <a href="https://nodejs.org/docs/latest/api/process.html#process_process_argv">Node process.argv API</a>
-                </section>
-                <section>
-                    <h3>type 'node timer.js'</h3>
-                    <pre><code class="hljs" data-trim contenteditable width>
-/*
- * intervals.js
- * Intervals and Timeouts in javascript
- */
-
-//******************************************************************************//
-/*
- * setInterval(callback, time) : repeats the callback function every *time* ms
- * clearInterval(timer) : stops a corresponding setInterval callback
- */
-
-var repeatingFunction = setInterval(function() {
-    console.log("Ping");
-},1000);
-
-//******************************************************************************//
-
-                    </code></pre>
-                    <a href="https://nodejs.org/api/timers.html">Node timers API</a>
-                </section>
-
-                <section>
-                    <img src="img/computer_talk.jpg" height="500">
-                    <p class="fragment">with NodeJS</p>
-                    <a href="#" class="navigate-down">
-                    </a>
-                </section>
-                <section>
-                    <h3>Open a terminal</h3>
-                    <img src="img/say_cmd.png" height="250">
-                    <h3>Type 'say' + space  + "something to say"</h3>
-                </section>
-                <section>
-                    <h3>type 'node speak.js'</h3>
-                    <pre><code class="hljs" data-trim contenteditable width>
-//the child_process library let's us execute command line commands, https://nodejs.org/api/child_process.html
-var exec = require('child_process').exec;
-//This variable stores the command we want to execute, we are going to use the say command
-var say = 'say ';
-
-//let's make a function that speaks
-function speak(whatosay){
-    //speak the string
-    exec(say + whatosay);
-    //log it to the console
-    console.log(whatosay)
-}
-// call the function
-speak("I just do this");
- */
-                </code></pre>
-                    <a href="https://nodejs.org/api/child_process.html">https://nodejs.org/api/child_process.html</a>
-                </section>
-                <section>
-                    <h3>Modify the program, change the voice and what it says.</h3>
-                    <br>
-                    <h3>Save it and then run node app.js</h3>
-                </section>
-
-                <section>                    
-                        <p>Node is good for writing webservers</i></p><br>
-                        <br><b><p>node simple_server.js</b></p>
-                        <br><b><p>Open a browser and go to localhost:8000</p></b>
-                </section>
-                <section>                    
-                <b><p>contents of hello.js</p></b></br>
-                        <code class="hljs" data-trim contenteditable><pre>
-// Load the http module to create an http server.
-var http = require('http');
-
-// Configure our HTTP server to respond with Hello World to all requests.
-var server = http.createServer(function (request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Hello World\n");
-});
-
-// Listen on port 8000, IP defaults to localhost
-server.listen(8000);
-
-// Put a friendly message on the terminal
-console.log("Server running at http://localhost:8000/");
-</pre>
-                        </code>
-                </section>
-                 <section>                    
-                        <p>Node documentation:</i></p><br>
-                        <a href="https://nodejs.org/en/docs/">Here</a>
-                        
-                </section>
-              <section>
-                        <p>What is NPM:</p><br>
-                        <p>Node Package Manager</p><br>
-                        <br>
-                        <a href="#" class="navigate-down">
-                        </a>
-                    </section>
-                    <section>
-                        <p>Use NPM to install prebuilt node code</p><br>
-                        <p><a href="https://www.npmjs.com">https://www.npmjs.com</a></p><br>
-                    </section>
-                    <section>
-                        <p>Let's try it</p><br>
-                        <p><a href="https://www.npmjs.com/package/cfonts">sudo npm install cfonts -g</a></p><br>
-                        <p>cfonts -t "Hi Class"</p>
-                    </section>
-                    <section>
-                        <p>Let's try it</p><br>
-                        <p><a href="https://www.npmjs.com/package/cli-mandelbrot">sudo npm install -g cli-mandelbrot</a></p><br>
-                        <p>cli-mandelbrot</p>
-                    </section>
-                    <section>
-                        <p>Packages to connect with Arduino</p><br>
-                        <p><a href=" https://www.npmjs.com/package/serialport">Serialport Module</a></p><br>
-                    </section>
-                    <section>
-                        <p>Packages to connect with Arduino</p><br>
-                        <p><a href="https://www.npmjs.com/package/johnny-five">Johnny-Five</a></p><br>
-                        <p><a href="http://johnny-five.io/">http://johnny-five.io/</a></p><br>
-                    </section>
-
-                                        <section>                    
-                        <h4>We need to install a version Manager for node</h4>
-                        <p>sudo npm install n -g</p><br>
-                        <p>n 0.12.0</p>
-                        <a href="#" class="navigate-down">
-                        </a>
-                </section>
 
 
-                    <section>                    
-                        <h4>Project 1</h4>
-                        <p>Connect a potentiometer</p>
-                        <img src="img/1.png" height="500">
-                        <a href="#" class="navigate-down">
-                        </a>
-                </section>
-                <section>                    
-                        <h4>Project 1</h4>
-                        <p>Connect a potentiometer</p>
-                        <img src="img/2.png" height="500">
-                      
-                </section>
-    
-                <section>                    
-                        <h4>Project 1</h4>
-                        <p>1: Upload AnalogInOutSerial.ino to arduino from AnalogInOutSerial in the code folder</p><br>
-                        <p>2: Run node index.js from the serialbasic from serialbasic in the code folder</p>
-                  
-                        </a>
-                </section>
-                <section>                    
-                        <h4>Project 1</h4>
-                        <p>1: Run node index.js from the serialbasic from serial_ws in the code folder</p><br>
-                        <p>2: Open web browser go to <a href="http://localhost:3000"></a>http://localhost:3000</p>
-                        </a>
-                </section>
-               
-                </section>
 
         </div>
     </div>
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
     <script>
-    // Full list of configuration options available at:
-    // https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
 
-        transition: 'convex', // none/fade/slide/convex/concave/zoom
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
 
-        // Optional reveal.js plugins
-        dependencies: [{
-            src: 'lib/js/classList.js',
-            condition: function() {
-                return !document.body.classList;
-            }
-        }, {
-            src: 'plugin/markdown/marked.js',
-            condition: function() {
-                return !!document.querySelector('[data-markdown]');
-            }
-        }, {
-            src: 'plugin/markdown/markdown.js',
-            condition: function() {
-                return !!document.querySelector('[data-markdown]');
-            }
-        }, {
-            src: 'plugin/highlight/highlight.js',
-            async: true,
-            condition: function() {
-                return !!document.querySelector('pre code');
-            },
-            callback: function() {
-                hljs.initHighlightingOnLoad();
-            }
-        }, {
-            src: 'plugin/zoom-js/zoom.js',
-            async: true
-        }, {
-            src: 'plugin/notes/notes.js',
-            async: true
-        }]
-    });
+            // Optional reveal.js plugins
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                condition: function() {
+                    return !!document.querySelector('pre code');
+                },
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }]
+        });
     </script>
 </body>
 
