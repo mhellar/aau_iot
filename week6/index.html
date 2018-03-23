@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title> Internet of Things: Week 5</title>
+    <title> Internet of Things: Week 6</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,10 +30,10 @@
         <div class="slides">
             <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
                 <figure>
-                    <h2 class="intro">Internet of Things: Week 5</h2 class="intro">
-                    <h2 class="intro">Internet of Things: Week 5</h2 class="intro">
-                    <h2 class="intro">Internet of Things: Week 5</h2 class="intro">
-                    <h2 class="intro">Internet of Things: Week 5</h2 class="intro">
+                    <h2 class="intro">Internet of Things: Week 6</h2 class="intro">
+                    <h2 class="intro">Internet of Things: Week 6</h2 class="intro">
+                    <h2 class="intro">Internet of Things: Week 6</h2 class="intro">
+                    <h2 class="intro">Internet of Things: Week 6</h2 class="intro">
                 </figure>
             </section>
             <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="90px" data-background-transition="zoom">
@@ -57,6 +57,15 @@
                 <img src="img/esp32pinout.jpg" height="400">
             </section>
             <section>
+                <p>Install This Driver</p>
+                <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">Here</a>
+            </section>
+            <section>
+                <p>Install for you platform</p>
+                <a href="https://github.com/espressif/arduino-esp32">Here</a>
+            </section>
+
+            <section>
                 <p>Connect an LED, Anode to pin 12 w/resistor, Cathode to GND</p>
                 <img src="img/esp32led.png" height="400">
             </section>
@@ -75,10 +84,72 @@
                 <p>Once uploaded open the serial monitor at to 115200 baud</p>
                 <p>Hit the reset button on the ESP32, it will connect to wifi and display an IP address go to this address in the browser</p>
             </section>
+            <section>
+                <p>Connect some touch Pins</p>
+                <img src="img/espTouch.png" height="400">
+            </section>
 
+            <section>
+                <a href="http://bit.ly/2nWOiJZ">Code Download</a>
+            </section>
+            <section>
+                <br>
+                <img src="img/mqttorg.png">
+                <br>
+            </section>
 
+            <section>
+                <br>
+                <img src="img/mqtt-explanation.png">
+                <br>
+            </section>
 
+            <section>
+                <p>Open a terminal</p>
+                <p>sudo npm install mqtt -g</p>
+            </section>
 
+            <section>
+                <p>Open a terminal</p>
+                <p>sudo npm install mosca bunyan -g</p>
+                <p>mosca -v | bunyan</p>
+            </section>
+
+            <section>
+                <p>Open a second terminal</p>
+                <p>mqtt sub -t '/hello' -h 'localhost'</p>
+            </section>
+
+            <section>
+                <p>Open a third terminal</p>
+                <p>mqtt pub -t '/hello' -h 'localhost' -m 'hi from me'</p>
+            </section>
+            <section>
+                <p>Open MQTT_panel in a text editor</p>
+                <p>set line 2 of index.js to my server</p>
+                <p>cd in terminal, npm install, noder index.js, go to localhost:3000</p>
+            </section>
+            <section>
+                <p>Open a third terminal</p>
+                <p>mqtt pub -t '/hello' -h 'localhost' -m 'My message'</p>
+            </section>
+            <section>
+                <p>In Arduino install the PubSubClient Library</p>
+            </section>
+
+            <section>
+                <p>Upload ESP32TouchInterruptSerial.ino</p>
+            </section>
+
+            <section>
+                <p>Upload ESP32TouchInterruptMQTT.ino</p>
+                <p>Set the Wifi to BOTT and iotpassword</p>
+                <p>Set the MQTT server to your IP address</p>
+            </section>
+
+            <section>
+                <p>Painting Excercise</p>
+            </section>
 
         </div>
     </div>
