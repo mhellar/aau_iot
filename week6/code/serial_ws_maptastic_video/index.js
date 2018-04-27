@@ -5,8 +5,8 @@ var path = require("path");
 const io = require("socket.io")(server);
 const SerialPort = require("serialport");
 const Readline = SerialPort.parsers.Readline;
-const port = new SerialPort("/dev/tty.usbmodem1411", {
-    baudRate: 9600
+const port = new SerialPort("/dev/tty.SLAB_USBtoUART", {
+    baudRate: 115200
 });
 
 //expose the local public folder for inluding files js, css etc..
