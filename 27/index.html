@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Physical Computing: 2</title>
+    <title>Internet of Things</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,16 +30,14 @@
         <div class="slides">
             <section>
                 <figure>
-                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
-                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
-                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
-                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
+                    <h2 class="intro">Internet of Things</h2 class="intro">
+                    <h2 class="intro">Internet of Things</h2 class="intro">
+                    <h2 class="intro">Internet of Things</h2 class="intro">
+                    <h2 class="intro">Internet of Things</h2 class="intro">
                 </figure>
             </section>
 
             <section data-background="img/72-points-mesh.svg" data-background-transition="zoom">
-                <p><b>Slides are here: <br>http://mhellar.github.io/physcomp2/3</b></p>
-                <br>
                 <p><b>Grab the code here: <br><a href="http://bit.ly/2s6rk1T">http://bit.ly/2s6rk1T</a></b></p>
             </section>
 
@@ -48,18 +46,16 @@
                 <ul>
                     <h3>Topics for Today:</h3>
                     <li class="fragment">Final Presentations</li>
+                    <li class="fragment">The Johnny Five Library</li>
                     <li class="fragment">Twitter Lamp</li>
                     <li class="fragment">Twitter Button</li>
-                    <li class="fragment">Fritzing</li>
-                    <li class="fragment">Introduction to the ESP8266</li>
+                    <li class="fragment">ESP32 Review</li>
                 </ul>
             </section>
             <!-- <section>
                 <img src="img/urls.png">
             </section> -->
-            <section>
-                <h3>Fritzing.org</h3>
-            </section>
+
             <!-- <section>
                 <img src="img/step.png">
             </section>
@@ -75,6 +71,167 @@
             <section>
                 <h3>upload stepper3</h3>
             </section> -->
+            <section>
+                <img src="img/joystick.png">
+            </section>
+            <section>
+                <h4>Connections</h4>
+                <p>GND -> GND</p>
+                <p>5V -> 5V</p>
+                <p>Vrx -> A1</p>
+                <p>Vry -> A0</p>
+                <p>SW -> 2</p>
+            </section>
+            <section>
+                <p>Upload joystick with arduino</p>
+            </section>
+
+            <section>
+                <p>cd 'joystick_p5js' && npm install && node app.js && localhost:3000 in the browser</p>
+            </section>
+
+
+            <section data-background="img/johnny-five-fb.png" data-background-transition="zoom">
+
+            </section>
+            <section data-background="img/sc_poster.jpg" data-background-size="600px" data-background-transition="zoom">
+
+            </section>
+
+            <section>
+                <p>
+                    Johnny-Five is the original JavaScript Robotics programming framework. Released by Bocoup in 2012, Johnny-Five is maintained by a community of passionate software developers and hardware engineers. Over 75 developers have made contributions towards building
+                    a robust, extensible and composable ecosystem.
+                </p>
+            </section>
+
+            <section data-background="img/led_1.png" data-background-size="1000px" data-background-transition="zoom">
+
+            </section>
+
+            <section>
+                <h3>Starting a new Node app</h3>
+                <ul>
+                    <li>Create a new folder named, 'J5_led_1'</li>
+                    <li class="fragment">Open the terminal</li>
+                    <li class="fragment">type 'cd' & space</li>
+                    <li class="fragment">drag your folder to the terminal and hit return</li>
+                </ul>
+            </section>
+            <section>
+
+                <ul>
+                    <li>Now we are in our new folder in the terminal</li>
+                    <li class="fragment">Type 'npm init' & hit return</li>
+                    <li class="fragment">fill out the questions</li>
+                    <li class="fragment">drag your folder onto Sublime Text</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>type 'npm install johnny-five --save</li>
+                    <li class="fragment">Have a look at the package.json file that was generated</li>
+                    <li class="fragment">This stores metadata about our app</li>
+                </ul>
+            </section>
+
+            <section>
+                <b><p>contents of package.json</p></b></br>
+                <code class="hljs" data-trim contenteditable><pre>
+{
+  "name": "J5_led_1",
+  "version": "1.0.0",
+  "description": "A Johnny Five LED app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "johnny-five": "^0.8.106"
+  }
+}
+</pre>
+                        </code>
+            </section>
+
+            <section>
+                <h3>create a new file, enter the following code and save as index.js in your new folder</h3>
+                <code class="hljs" data-trim contenteditable><pre>
+var five = require("johnny-five");
+var board = new five.Board();
+
+board.on("ready", function() {
+  var led = new five.Led(6);
+  led.blink(500);
+});
+</pre>
+                        </code>
+            </section>
+            <section>
+                <ul>
+                    <li>Upload firmata to arduino</li>
+                    <li class="fragment">run 'node index.js' at the terminal</li>
+                </ul>
+            </section>
+            <section>
+                <h3>try a pulse</h3>
+                <code class="hljs" data-trim contenteditable><pre>
+var five = require("johnny-five");
+var board = new five.Board();
+
+board.on("ready", function() {
+  var led = new five.Led(6);
+led.pulse(500);
+});
+</pre>
+                        </code>
+            </section>
+            <section>
+                <b><p>Led Animations</p></b></br>
+                <code class="hljs" data-trim contenteditable><pre>
+var five = require("johnny-five");
+var board = new five.Board();
+
+board.on("ready", function() {
+  var led = new five.Led(6);
+led.pulse({
+  easing: "linear",
+  duration: 3000,
+  cuePoints: [0, 0.2, 0.4, 0.6, 0.8, 1],
+  keyFrames: [0, 10, 0, 50, 0, 255],
+  onstop: function() {
+    console.log("Animation stopped");
+  }
+});
+});
+</pre>
+                        </code>
+            </section>
+
+            <section>
+                <p>Reference</i>
+                </p><br>
+                <a href="http://johnny-five.io/api/led/">LED API</a><br>
+                <a href="http://johnny-five.io/api/animation/#segment-properties">Animation API</a><br>
+                <a href="http://johnny-five.io/api/">Full API</a>
+
+            </section>
+
+            <section>
+                <h4>Project 1</h4>
+                <p>Connect a servo</p>
+                <img src="img/servo.png" height="500">
+            </section>
+
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h2 class="intro">From the terminal:</h2>
+                <br>
+                <h2 class="intro">'cd j5SocketInputServo'</h2>
+                <br>
+                <h2 class="intro">'node app.js'</h2>
+            </section>
             <section>
                 <h3>Project: Twitter Lamp</h3>
                 <img src="img/Twitter_logo_blue.png" height="400"><img src="img/botrobot.jpg" height="400">
@@ -156,6 +313,108 @@ var client = new Twitter({
                 <h2 class="intro">'cd twitter-button'</h2>
                 <br>
                 <h2 class="intro">'node app.js'</h2>
+            </section>
+
+            <section>
+                <p>The ESP32</p>
+                <img src="img/esp32.jpg" height="400">
+            </section>
+            <section>
+                <p>ESP32 Pinout</p>
+                <img src="img/esp32pinout.jpg" height="400">
+            </section>
+            <section>
+                <p>Install This Driver</p>
+                <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">Here</a>
+            </section>
+            <section>
+                <p>Install for you platform</p>
+                <a href="https://github.com/espressif/arduino-esp32">Here</a>
+            </section>
+
+            <section>
+                <p>Connect an LED, Anode to pin 12 w/resistor, Cathode to GND</p>
+                <img src="img/esp32led.png" height="400">
+            </section>
+            <section>
+                <p>In Arduino set the board to Adafruit ESP32 Feather</p>
+            </section>
+            <section>
+                <p>Upload blink</p>
+            </section>
+            <section>
+                <p>Connect you laptop to the BOTT network</p>
+                <p>password: iotpassword</p>
+            </section>
+            <section>
+                <p>Upload SimpleWiFiServer</p>
+                <p>Once uploaded open the serial monitor at to 115200 baud</p>
+                <p>Hit the reset button on the ESP32, it will connect to wifi and display an IP address go to this address in the browser</p>
+            </section>
+            <section>
+                <p>Connect some touch Pins</p>
+                <img src="img/espTouch.png" height="400">
+            </section>
+
+            <section>
+                <a href="http://bit.ly/2nWOiJZ">Code Download</a>
+            </section>
+            <section>
+                <br>
+                <img src="img/mqttorg.png">
+                <br>
+            </section>
+
+            <section>
+                <br>
+                <img src="img/mqtt-explanation.png">
+                <br>
+            </section>
+
+            <section>
+                <p>Open a terminal</p>
+                <p>sudo npm install mqtt -g</p>
+            </section>
+
+            <section>
+                <p>Open a terminal</p>
+                <p>sudo npm install mosca bunyan -g</p>
+                <p>mosca -v | bunyan</p>
+            </section>
+
+            <section>
+                <p>Open a second terminal</p>
+                <p>mqtt sub -t '/hello' -h 'localhost'</p>
+            </section>
+
+            <section>
+                <p>Open a third terminal</p>
+                <p>mqtt pub -t '/hello' -h 'localhost' -m 'hi from me'</p>
+            </section>
+            <section>
+                <p>Open MQTT_panel in a text editor</p>
+                <p>set line 2 of index.js to my server</p>
+                <p>cd in terminal, npm install, noder index.js, go to localhost:3000</p>
+            </section>
+            <section>
+                <p>Open a third terminal</p>
+                <p>mqtt pub -t '/hello' -h 'localhost' -m 'My message'</p>
+            </section>
+            <section>
+                <p>In Arduino install the PubSubClient Library</p>
+            </section>
+
+            <section>
+                <p>Upload ESP32TouchInterruptSerial.ino</p>
+            </section>
+
+            <section>
+                <p>Upload ESP32TouchInterruptMQTT.ino</p>
+                <p>Set the Wifi to BOTT and iotpassword</p>
+                <p>Set the MQTT server to your IP address</p>
+            </section>
+            <section>
+                <h3>Fritzing.org</h3>
             </section>
 
         </div>
