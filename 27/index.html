@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Physical Computing: 2</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <figure>
+                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
+                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
+                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
+                    <h2 class="intro">Physical Computing: 2</h2 class="intro">
+                </figure>
+            </section>
+
+            <section data-background="img/72-points-mesh.svg" data-background-transition="zoom">
+                <p><b>Slides are here: <br>http://mhellar.github.io/physcomp2/3</b></p>
+                <br>
+                <p><b>Grab the code here: <br><a href="http://bit.ly/2s6rk1T">http://bit.ly/2s6rk1T</a></b></p>
+            </section>
+
+
+            <section>
+                <ul>
+                    <h3>Topics for Today:</h3>
+                    <li class="fragment">Projects</li>
+                    <li class="fragment">Fritzing</li>
+                    <li class="fragment">Twitter Lamp</li>
+                    <li class="fragment">Twitter Button</li>
+                    <li class="fragment">Introduction to the ESP8266</li>
+                </ul>
+            </section>
+            <!-- <section>
+                <img src="img/urls.png">
+            </section> -->
+            <section>
+                <h3>Fritzing.org</h3>
+            </section>
+            <!-- <section>
+                <img src="img/step.png">
+            </section>
+            <section>
+                <h3>upload stepper1</h3>
+            </section>
+            <section>
+                <h3>upload stepper2</h3>
+            </section>
+            <section>
+                <a href="https://github.com/adafruit/AccelStepper">Install AccellStepper Library</a>
+            </section>
+            <section>
+                <h3>upload stepper3</h3>
+            </section> -->
+            <section>
+                <h3>Project: Twitter Lamp</h3>
+                <img src="img/Twitter_logo_blue.png" height="400"><img src="img/botrobot.jpg" height="400">
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h3>Make this circuit</h3>
+                <img src="img/led_1.png" height="400">
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h3>Go Here:</h3><br>
+                <a href="https://apps.twitter.com/">https://apps.twitter.com/</a>
+                <img src="img/twit.png" height="400"><br>
+                <h3>create a new app</h3>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h3>Gather tokens and keys</h3><br>
+                <img src="img/tw_tokens.png" height="400"><br>
+            </section>
+            <section>
+                <b><p>Update code in code/twitter-ard/app.js</p></b></br>
+                <code class="hljs" data-trim contenteditable><pre>
+var client = new Twitter({
+    consumer_key: 'Enter Here',
+    consumer_secret: 'Enter Here',
+    access_token_key: 'Enter Here',
+    access_token_secret: 'Enter Here'
+})
+</pre>
+                        </code>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h2 class="intro">From the terminal:</h2>
+                <br>
+                <h2 class="intro">'cd twitter-ard'</h2>
+                <br>
+                <h2 class="intro">'node app.js'</h2>
+            </section>
+            <section data-background="img/terminal.gif" data-background-size="1200px">
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h2 class="intro">From the terminal:</h2>
+                <br>
+                <h2 class="intro">'cd twitter-ard-location'</h2>
+                <br>
+                <h2 class="intro">'node app.js'</h2>
+            </section>
+            <section>
+                <p>Twitter API Reference</i>
+                </p>
+                <br>
+                <a href="https://dev.twitter.com/streaming/overview/request-parameters#language">Here</a>
+                <br>
+            </section>
+
+            <section>
+                <h3>Project: Twitter Button</h3>
+                <img src="img/internet_earth.png" height="400"><img src="img/Push-Button-Switch.jpg" height="400">
+                <a href="#" class="navigate-down">
+                </a>
+            </section>
+            <section>
+                <img src="img/button.png" height="600">
+            </section>
+            <section>
+                <b><p>Update code in code/twitter-ard/app.js</p></b></br>
+                <code class="hljs" data-trim contenteditable><pre>
+var client = new Twitter({
+    consumer_key: 'Enter Here',
+    consumer_secret: 'Enter Here',
+    access_token_key: 'Enter Here',
+    access_token_secret: 'Enter Here'
+})
+</pre>
+                        </code>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <h2 class="intro">From the terminal:</h2>
+                <br>
+                <h2 class="intro">'cd twitter-button'</h2>
+                <br>
+                <h2 class="intro">'node app.js'</h2>
+            </section>
+            <section>
+                <p>The ESP8266</p>
+            </section>
+            <section>
+                <p>We need to solder the header pins on, let's do that now</p>
+            </section>
+            <section data-background="img/feather.jpg">
+            </section>
+            <section>
+                <p>The ESP8266 is a low-cost Wi-Fi chip with full TCP/IP stack and MCU (Micro Controller Unit) capability produced by Shanghai-based Chinese manufacturer, Espressif Systems.</p>
+            </section>
+            <section>
+                <p>The Adafruit Feather is a mini Arduino with Wifi, that is $16.00!</p>
+                <br>
+            </section>
+            <section>
+                <p>
+                    <a="https://github.com/esp8266/Arduino">ESP8266 core for Arduino</a>
+                </p>
+            </section>
+            <section>
+                <p>
+                    Getting Set up:
+                    <br> - First install the USB driver <a href="https://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx">SiLabs serial driver</a>
+                </p>
+            </section>
+            <section>
+                <p>
+                    Getting Set up:
+                    <br> - Next go to the Arduino Preferences
+                    <br><img src="img/ard-pref.png" height="400">
+                    <br> Enter <b>http://arduino.esp8266.com/stable/package_esp8266com_index.json</b> into Additional Boards Manager URLs
+                </p>
+            </section>
+            <section>
+                <p>
+                    Getting Set up:
+                    <br> - Next, use the Board manager to install the ESP8266 package.
+                    <br><img src="img/brdmgr.png" height="400">
+                </p>
+            </section>
+            <section>
+                <p>
+                    Getting Set up:
+                    <br> Set Board to Adafruit HUZZAH ESP8266
+                    <br> Set port to SLABusbtoUART
+                </p>
+            </section>
+
+            <section>
+                <p>Connect an led</p>
+                <br>
+                <img src="img/mqled.png" height="400">
+                <p>Anode to Pin 2, Cathode to GND</p>
+            </section>
+            <section>
+                <p>Upload Blink</p>
+                <br>
+            </section>
+            <section>
+                <p>Upload WiFiWebServer</p>
+                <br>
+            </section>
+            <section>
+                <p>Upload ESPwebpage</p>
+                <br>
+            </section>
+            <section>
+                <p>Hook Up A Servo</p>
+                <br>
+                <img src="img/servoesp1.png" height="400">
+                <p>Black to GND, Red to Bat, Yellow to pin 5</p>
+            </section>
+            <section>
+                <p>Upload ESPwebpageServo</p>
+                <br>
+            </section>
+            <section>
+                <a href=" https://github.com/kitesurfer1404/WS2812FX">WS2812FX</p>
+</section>
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                condition: function() {
+                    return !!document.querySelector('pre code');
+                },
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }]
+        });
+    </script>
+</body>
+
+</html>
