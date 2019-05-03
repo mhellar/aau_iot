@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> Internet of Things: Week 4</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat"
+                data-background-size="100px" data-background-transition="zoom">
+                <figure>
+                    <h2 class="intro">Internet of Things: SPIFFS</h2 class="intro">
+                    <h2 class="intro">Internet of Things: SPIFFS</h2 class="intro">
+                    <h2 class="intro">Internet of Things: SPIFFS</h2 class="intro">
+                    <h2 class="intro">Internet of Things: SPIFFS</h2 class="intro">
+                </figure>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat"
+                data-background-size="90px" data-background-transition="zoom">
+                <p>Grab the code here: <a href="http://bit.ly/2d5JEmU">http://bit.ly/2d5JEmU</a></p>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat"
+                data-background-size="80px" data-background-transition="zoom">
+                <ul>
+                    <h3>Topics for This Week:</h3>
+                    <li class="fragment">Serial Peripheral Interface Flash File System (SPIFFS)</li>
+                    <li class="fragment">Setting up the ESP32 as a webserver</li>
+                    <li class="fragment">Individual Meetings</li>
+                    <li class="fragment">Spring Show Check In</li>
+                </ul>
+            </section>
+
+            <section>
+                The ESP32 contains a Serial Peripheral Interface Flash File System (SPIFFS). SPIFFS is a lightweight
+                filesystem created for microcontrollers with a flash chip, which are connected by SPI bus, like the
+                ESP32 flash memory. In this article we’re going to show how to easily upload files to the ESP32
+                filesystem using a plugin for the Arduino IDE.
+            </section>
+
+            <section>
+                The Adafruit feather has 1MB of SPIFFS storage available
+            </section>
+            <section>
+                <ul>
+                    <li>Create configuration files with settings;</li>
+                    <li>Save data permanently;</li>
+                    <li>Create files to save small amounts of data instead of using a microSD card;</li>
+                    <li>Save HTML and CSS files to build a web server;</li>
+                    <li>And much more.</li>
+                </ul>
+            </section>
+            <section>
+                <a href="https://github.com/me-no-dev/arduino-esp32fs-plugin/releases/">Download the SPIFFS uupload tool
+                    for arduino</a>
+            </section>
+            <section>
+                <ul>
+                    <li>Unzip the folder</li>
+                    <li>Go to-> Documents Arduino</li>
+                    <li>Create a folder called tools</li>
+                    <li>Place the Unzipped folder in there</li>
+                    <li>Restart the Arduino IDE</li>
+                </ul>
+            </section>
+            <section>
+                You will now have this folder
+                <img src="img/sketch-data-upload.png">
+            </section>
+            <section>
+                <a href="">Download this code</a>
+            </section>
+            <section>
+                Open spiffs_test
+            </section>
+            <section>
+                Under Sketch->Show Sketch Folder
+                <img src="img/sketchfolder.png">
+            </section>
+            <section>
+                The data folder contains files the data which get's stored in the SFIFFS File system
+                <img src="img/sketchfolder.png">
+            </section>
+            <section>
+                To upload go to tools -> ESP32 Sketch Data Upload
+                <img src="img/spiffsupload.png">
+                This does not upload the main program, upload the code normally
+            </section>
+            <section>
+                Lets look at the code.
+            </section>
+            <section>
+                <a href="https://techtutorialsx.com/2018/08/05/esp32-arduino-spiffs-writing-a-file/">How to write a
+                    file</a>
+            </section>
+            <section>
+                We can upload HTML,CSS and JS to run a webserver
+                <img src="img/esp32-web-server-spiffs.png">
+            </section>
+            <section>
+                We can upload HTML,CSS and JS to run a webserver
+                <img src="img/async-web-server-spiffs.png">
+            </section>
+
+            <section>
+                <ul>
+                    <li>The ESP32 runs a web server code based on the <a
+                            href="https://github.com/me-no-dev/ESPAsyncWebServer" target="_blank"
+                            rel="noreferrer noopener">ESPAsyncWebServer library</a>;</li>
+                    <li>The HTML and CSS files are stored on the ESP32 SPIFFS (Serial Peripheral Interface Flash File
+                        System);</li>
+                    <li>When you make a request on a specific URL using your browser, the ESP32 responds with the
+                        requested files;</li>
+                    <li>When you click the ON button, you are redirected to the root URL followed by
+                        <strong>/on</strong> and the LED is turned on;</li>
+                    <li>When you click the OFF button, you are redirected to the root URL followed by
+                        <strong>/off</strong> and the LED is turned off;</li>
+                    <li>On the web page, there is a placeholder for the GPIO state. The placeholder for the GPIO state
+                        is written directly in the HTML file between % signs, for example <strong>%STATE%</strong>.</li>
+                </ul>
+            </section>
+            <section>
+                <p>Follow the next steps to install the <a href="https://github.com/me-no-dev/ESPAsyncWebServer"
+                        target="_blank" rel="noreferrer noopener">ESPAsyncWebServer</a> library:</p>
+                <ol>
+                    <li><a href="https://github.com/me-no-dev/ESPAsyncWebServer/archive/master.zip" target="_blank"
+                            rel="noreferrer noopener">Click here to download</a>&nbsp;the ESPAsyncWebServer library. You
+                        should have a .zip folder in your Downloads folder</li>
+                    <li>Unzip the .zip folder and you should get ESPAsyncWebServer-master folder</li>
+                    <li>Rename your folder from <del>ESPAsyncWebServer-master</del>&nbsp;to ESPAsyncWebServer</li>
+                    <li>Move the ESPAsyncWebServer&nbsp;folder to your Arduino IDE installation libraries folder</li>
+                </ol>
+            </section>
+            <section>
+                <p>The <a href="https://github.com/me-no-dev/ESPAsyncWebServer" target="_blank"
+                        rel="noreferrer noopener">ESPAsyncWebServer</a> library requires the <a
+                        href="https://github.com/me-no-dev/AsyncTCP" target="_blank"
+                        rel="noreferrer noopener">AsyncTCP</a> library to work. Follow the next steps to install that
+                    library:</p>
+
+                <ol>
+                    <li><a href="https://github.com/me-no-dev/ESPAsyncWebServer/archive/master.zip" target="_blank"
+                            rel="noreferrer noopener">Click here to download</a>&nbsp;the <a
+                            href="https://github.com/me-no-dev/AsyncTCP/archive/master.zip" target="_blank"
+                            rel="noreferrer noopener">AsyncTCP</a> library. You should have a .zip folder in your
+                        Downloads folder</li>
+                    <li>Unzip the .zip folder and you should get AsyncTCP-master folder</li>
+                    <li>Rename your folder from <del>AsyncTCP-master</del>&nbsp;to AsyncTCP</li>
+                    <li>Move the AsyncTCPfolder to your Arduino IDE installation libraries folder</li>
+                    <li>Finally, re-open your Arduino IDE</li>
+                </ol>
+            </section>
+            <section>
+                <img src="folder-organization-async-spiffs.png">
+            </section>
+            <section>
+                Open ESP32_Async_Web_Server from the code folder
+            </section>
+            <section>
+                To upload go to tools -> ESP32 Sketch Data Upload
+                <img src="img/spiffsupload.png">
+                This does not upload the main program, upload the code normally
+            </section>
+            <section>
+                Lets look at the code.
+            </section>
+
+
+
+
+
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function () {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                condition: function () {
+                    return !!document.querySelector('pre code');
+                },
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }]
+        });
+    </script>
+</body>
+
+</html>
